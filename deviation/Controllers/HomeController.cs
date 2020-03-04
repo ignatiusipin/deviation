@@ -6,7 +6,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Template_.Models;
+using deviation.Models;
+
 
 namespace Template_.Controllers
 {
