@@ -9,18 +9,18 @@
 The smaller device rules always should write below the bigger device rules
 Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Component
 */
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700");
-@import url(../icons/font-awesome/css/font-awesome.min.css);
-@import url(../icons/simple-line-icons/css/simple-line-icons.css);
-@import url(../icons/weather-icons/css/weather-icons.min.css);
-@import url(../icons/cryptocoins/css/cryptocoins.css);
-@import url(../icons/cryptocoins/css/cryptocoins-colors.css);
-@import url(../icons/linea-icons/linea.css);
-@import url(../icons/ionicons/css/ionicons.css);
-@import url(../icons/themify-icons/themify-icons.css);
-@import url(../icons/flag-icon-css/flag-icon.min.css);
-@import url(../icons/material-design-iconic-font/materialdesignicons.min.css);
-@import url(../icons/pe-icon-set-weather/css/pe-icon-set-weather.min.css);
+@import url(../../Styles/css/font_googleapis.css);
+@import url(../../Styles/icons/font-awesome/css/font-awesome.min.css);
+@import url(../../Styles/icons/simple-line-icons/css/simple-line-icons.css);
+@import url(../../Styles/icons/weather-icons/css/weather-icons.min.css);
+@import url(../../Styles/icons/cryptocoins/css/cryptocoins.css);
+@import url(../../Styles/icons/cryptocoins/css/cryptocoins-colors.css);
+@import url(../../Styles/icons/linea-icons/linea.css);
+@import url(../../Styles/icons/ionicons/css/ionicons.css);
+@import url(../../Styles/icons/themify-icons/themify-icons.css);
+@import url(../../Styles/icons/flag-icon-css/flag-icon.min.css);
+@import url(../../Styles/icons/material-design-iconic-font/materialdesignicons.min.css);
+@import url(../../Styles/icons/pe-icon-set-weather/css/pe-icon-set-weather.min.css);
 
 @import url('../../Scripts/plugins/animate/animate.min.css');
 /*@import url(../plugins/animate/animate.min.css);*/
@@ -1422,18 +1422,19 @@ pre {
     border: 0; }
 
 .form-control {
-  display: block;
-  width: 100%;
-  height: calc(2.0625rem + 2px);
-  padding: 0.375rem 0.75rem;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
+    display: block;
+    width: 100%;
+    height: calc(2.0625rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #FCFCFC; /*#ced4da*/
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
   @media screen and (prefers-reduced-motion: reduce) {
     .form-control {
       transition: none; } }
@@ -2183,10 +2184,12 @@ fieldset:disabled a.btn {
     pointer-events: none; }
 
 .btn-lg, .btn-group-lg > .btn {
-  padding: 0.5rem 1rem;
-  font-size: 1.09375rem;
-  line-height: 1.5;
-  border-radius: 0.3rem; }
+    padding: 0.5rem 1rem;
+    font-size: 1.09375rem;
+    line-height: 1.5;
+    border-radius: 0.3rem;
+    width: 100%;  /* Tambahan baru supaya fix sesuai col*/
+}
 
 .btn-sm, .btn-group-sm > .btn {
   padding: 0.25rem 0.5rem;

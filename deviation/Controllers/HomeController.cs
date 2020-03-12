@@ -1,15 +1,14 @@
-﻿using System;
+﻿using deviation.Models;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
+using System.IO;
 using System.Web.Mvc;
-using deviation.Models;
 
 
-namespace Template_.Controllers
+namespace deviation.Controllers
 {
     public class HomeController : Controller
     {
@@ -20,16 +19,16 @@ namespace Template_.Controllers
         {
             return View();
         }
-
         
         public ActionResult Input()
         {
             return View();
         }
-              
+
+        #region DROPDOWN
         public ActionResult GetSite()
         {
-            string query = "select ddl_code, ddl_description from [dbo].[DEVIATION_DDL] where ddl_type = 'SITE' and is_active = 1 ";
+            string query = "select ddl_code, ddl_description from DEVIATION_DDL where ddl_type = 'SITE' and is_active = 1 ";
             List<SelectListItem> items = new List<SelectListItem>();
             using (SqlConnection con = new SqlConnection(constr))
             {                
@@ -56,7 +55,7 @@ namespace Template_.Controllers
 
         public ActionResult GetKategori()
         {
-            string query = "select ddl_code, ddl_description from[dbo].[DEVIATION_DDL] where ddl_type = 'KATEGORI' and is_active = 1";
+            string query = "select ddl_code, ddl_description from [DEVIATION_DDL] where ddl_type = 'KATEGORI' and is_active = 1";
             List<SelectListItem> items = new List<SelectListItem>();
             using (SqlConnection con = new SqlConnection(constr))
             {
@@ -83,7 +82,7 @@ namespace Template_.Controllers
 
         public ActionResult GetJenisPenyimpangan()
         {
-            string query = "select ddl_code, ddl_description from[dbo].[DEVIATION_DDL] where ddl_type = 'JENIS' and is_active = 1";
+            string query = "select ddl_code, ddl_description from [DEVIATION_DDL] where ddl_type = 'JENIS' and is_active = 1";
             List<SelectListItem> items = new List<SelectListItem>();
             using (SqlConnection con = new SqlConnection(constr))
             {
@@ -110,7 +109,7 @@ namespace Template_.Controllers
 
         public ActionResult GetKualitasProduk()
         {
-            string query = "select ddl_code, ddl_description from[dbo].[DEVIATION_DDL] where ddl_type = 'I_QUAL' and is_active = 1";
+            string query = "select ddl_code, ddl_description from [DEVIATION_DDL] where ddl_type = 'I_QUAL' and is_active = 1";
             List<SelectListItem> items = new List<SelectListItem>();
             using (SqlConnection con = new SqlConnection(constr))
             {
@@ -137,7 +136,7 @@ namespace Template_.Controllers
 
         public ActionResult GetCompliance()
         {
-            string query = "select ddl_code, ddl_description from[dbo].[DEVIATION_DDL] where ddl_type = 'I_COMP' and is_active = 1";
+            string query = "select ddl_code, ddl_description from [DEVIATION_DDL] where ddl_type = 'I_COMP' and is_active = 1";
             List<SelectListItem> items = new List<SelectListItem>();
             using (SqlConnection con = new SqlConnection(constr))
             {
@@ -164,7 +163,7 @@ namespace Template_.Controllers
 
         public ActionResult GetResikoOper()
         {
-            string query = "select ddl_code, ddl_description from[dbo].[DEVIATION_DDL] where ddl_type = 'I_RESOPR' and is_active = 1";
+            string query = "select ddl_code, ddl_description from [DEVIATION_DDL] where ddl_type = 'I_RESOPR' and is_active = 1";
             List<SelectListItem> items = new List<SelectListItem>();
             using (SqlConnection con = new SqlConnection(constr))
             {
@@ -191,7 +190,7 @@ namespace Template_.Controllers
 
         public ActionResult GetResikoFinan()
         {
-            string query = "select ddl_code, ddl_description from[dbo].[DEVIATION_DDL] where ddl_type = 'I_RESFIN' and is_active = 1";
+            string query = "select ddl_code, ddl_description from [DEVIATION_DDL] where ddl_type = 'I_RESFIN' and is_active = 1";
             List<SelectListItem> items = new List<SelectListItem>();
             using (SqlConnection con = new SqlConnection(constr))
             {
@@ -218,7 +217,7 @@ namespace Template_.Controllers
 
         public ActionResult GetResikoOrg()
         {
-            string query = "select ddl_code, ddl_description from[dbo].[DEVIATION_DDL] where ddl_type = 'I_RESORG' and is_active = 1";
+            string query = "select ddl_code, ddl_description from [DEVIATION_DDL] where ddl_type = 'I_RESORG' and is_active = 1";
             List<SelectListItem> items = new List<SelectListItem>();
             using (SqlConnection con = new SqlConnection(constr))
             {
@@ -245,7 +244,7 @@ namespace Template_.Controllers
 
         public ActionResult GetResikoKeamPer()
         {
-            string query = "select ddl_code, ddl_description from [dbo].[DEVIATION_DDL] where ddl_type = 'I_RESKPE' and is_active = 1";
+            string query = "select ddl_code, ddl_description from  [DEVIATION_DDL] where ddl_type = 'I_RESKPE' and is_active = 1";
             List<SelectListItem> items = new List<SelectListItem>();
             using (SqlConnection con = new SqlConnection(constr))
             {
@@ -272,7 +271,7 @@ namespace Template_.Controllers
 
         public ActionResult GetResikoKesPer()
         {
-            string query = "select ddl_code, ddl_description from [dbo].[DEVIATION_DDL] where ddl_type = 'I_RESHTP' and is_active = 1";
+            string query = "select ddl_code, ddl_description from  [DEVIATION_DDL] where ddl_type = 'I_RESHTP' and is_active = 1";
             List<SelectListItem> items = new List<SelectListItem>();
             using (SqlConnection con = new SqlConnection(constr))
             {
@@ -299,7 +298,7 @@ namespace Template_.Controllers
 
         public ActionResult GetRskLgkgan()
         {
-            string query = "select ddl_code, ddl_description from [dbo].[DEVIATION_DDL] where ddl_type = 'I_RESLKG' and is_active = 1";
+            string query = "select ddl_code, ddl_description from  [DEVIATION_DDL] where ddl_type = 'I_RESLKG' and is_active = 1";
             List<SelectListItem> items = new List<SelectListItem>();
             using (SqlConnection con = new SqlConnection(constr))
             {
@@ -326,7 +325,7 @@ namespace Template_.Controllers
 
         public ActionResult GetResikoIntelektual()
         {
-            string query = "select ddl_code, ddl_description from[dbo].[DEVIATION_DDL] where ddl_type = 'I_RESINTEL' and is_active = 1";
+            string query = "select ddl_code, ddl_description from [DEVIATION_DDL] where ddl_type = 'I_RESINTEL' and is_active = 1";
             List<SelectListItem> items = new List<SelectListItem>();
             using (SqlConnection con = new SqlConnection(constr))
             {
@@ -350,21 +349,39 @@ namespace Template_.Controllers
             }
             return Json(items);
         }
+        #endregion
+
+        // Generate No ReqID
+        public ActionResult GenerateNoReqID()
+        {
+            string result; ;
+            List<string> ModelData = new List<string>();
+            SqlConnection conn = new SqlConnection(constr);
+            conn.Open();
+            using (SqlCommand command = new SqlCommand("GENERATE_REQ_NO", conn))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                result = (string)command.ExecuteScalar();
+            }
+            conn.Close();
+            ModelData.Add(result);
+            return Json(ModelData);
+        }
 
         public ActionResult InsertFormDeviation(Form_deviation FD)
         {
-            string result, query;
-            List<string> ModelData = new List<string>();
-            DataTable dt = new DataTable();
-            query = "exec [dbo].[Insert_form_deviation]";
+            string result;
+            List<string> ModelData = new List<string>();            
 
             SqlConnection conn = new SqlConnection(constr);
-            SqlCommand cmd = new SqlCommand(query, conn);
             conn.Open();
-            using (SqlCommand command = new SqlCommand("[dbo].[Insert_form_deviation]", conn))
+            using (SqlCommand command = new SqlCommand("Insert_form_deviation", conn))
             {          
                 /* Header*/
                 command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@pilih", System.Data.SqlDbType.Int);
+                command.Parameters["@pilih"].Value = 1;
+
                 command.Parameters.Add("@ID_PROPOSER", System.Data.SqlDbType.VarChar);
                 command.Parameters["@ID_PROPOSER"].Value = FD.Id_proposer;
 
@@ -375,7 +392,7 @@ namespace Template_.Controllers
                 command.Parameters["@DEPARTEMENT"].Value = FD.Departement;
 
                 command.Parameters.Add("@PROBLEM", System.Data.SqlDbType.VarChar);
-                command.Parameters["@PROBLEM"].Value = FD.Departement;
+                command.Parameters["@PROBLEM"].Value = FD.Problem;
 
                 command.Parameters.Add("@DATE_OF_INCIDENT", System.Data.SqlDbType.VarChar);
                 command.Parameters["@DATE_OF_INCIDENT"].Value = FD.Date_of_incident;
@@ -389,6 +406,9 @@ namespace Template_.Controllers
                 command.Parameters.Add("@DEVIATION_TYPE", System.Data.SqlDbType.VarChar);
                 command.Parameters["@DEVIATION_TYPE"].Value = FD.Deviation_type;
 
+                command.Parameters.Add("@KET_CATEGORY", System.Data.SqlDbType.VarChar);
+                command.Parameters["@KET_CATEGORY"].Value = FD.Ket_category;
+
                 command.Parameters.Add("@LOCATION", System.Data.SqlDbType.VarChar);
                 command.Parameters["@LOCATION"].Value = FD.Location;
                 /* END Header */
@@ -400,19 +420,19 @@ namespace Template_.Controllers
                 command.Parameters.Add("@ORDER_OF_EVENTS", System.Data.SqlDbType.VarChar);
                 command.Parameters["@ORDER_OF_EVENTS"].Value = FD.Order_of_events;
                 /* ****** 1 */
-                command.Parameters.Add("@SAME_POTEN_DEV_FLAG", System.Data.SqlDbType.Bit);
+                command.Parameters.Add("@SAME_POTEN_DEV_FLAG", System.Data.SqlDbType.VarChar);
                 command.Parameters["@SAME_POTEN_DEV_FLAG"].Value = FD.Same_potent_dev_flg;
 
                 command.Parameters.Add("@SAME_POTEN_DEV", System.Data.SqlDbType.VarChar);
                 command.Parameters["@SAME_POTEN_DEV"].Value = FD.Same_potent_dev;
                 /* ****** 2 */
-                command.Parameters.Add("@POTEN_DEV_RLS_FLG", System.Data.SqlDbType.Bit);
+                command.Parameters.Add("@POTEN_DEV_RLS_FLG", System.Data.SqlDbType.VarChar);
                 command.Parameters["@POTEN_DEV_RLS_FLG"].Value = FD.Poten_dev_rls_flg;
 
                 command.Parameters.Add("@POTEN_DEV_RLS", System.Data.SqlDbType.VarChar);
                 command.Parameters["@POTEN_DEV_RLS"].Value = FD.Poten_dev_rls;
                 /* ****** 3 */
-                command.Parameters.Add("@POTEN_DEV_OTH_FLG", System.Data.SqlDbType.Bit);
+                command.Parameters.Add("@POTEN_DEV_OTH_FLG", System.Data.SqlDbType.VarChar);
                 command.Parameters["@POTEN_DEV_OTH_FLG"].Value = FD.Poten_dev_oth_flg;
 
                 command.Parameters.Add("@POTEN_DEV_OTH", System.Data.SqlDbType.VarChar);
@@ -451,16 +471,215 @@ namespace Template_.Controllers
                 command.Parameters.Add("@RISK_INTELLECTUAL", System.Data.SqlDbType.VarChar);
                 command.Parameters["@RISK_INTELLECTUAL"].Value = FD.Risk_intelectual;
 
-                command.Parameters.Add("@SEVERTY_DEVIATION", System.Data.SqlDbType.VarChar);
-                command.Parameters["@SEVERTY_DEVIATION"].Value = FD.Severty_dev;
-
+                command.Parameters.Add("@REQID", System.Data.SqlDbType.VarChar);
+                command.Parameters["@REQID"].Value = FD.REQID;
                 /* End Details */
                 result = (string)command.ExecuteScalar();
             }
             conn.Close();
-
+            ModelData.Add(result);
             return Json(ModelData);
         }
 
+        #region UPLOAD DOWNLOAD LOAD
+
+        public ActionResult UploadAttachment(FormCollection formCollection)
+        {
+            string FileNameForDB = ""
+                , URLAttachment = ""
+                , result=""
+                , ReqID = formCollection["ReqID"];
+            DataTable dt = new DataTable();
+
+            List<string> ModelData = new List<string>();
+            SqlConnection conn = new SqlConnection(constr);
+
+            for (int i = 0; i < Request.Files.Count; i++)
+            {
+                var file = Request.Files[i];
+                var fileName = ReqID +'-'+ Path.GetFileName(file.FileName);
+
+                URLAttachment = Path.Combine(@"\\KALBOX-B7.BINTANG7.com\Intranetportal\Intranet Attachment\Deviation\",  fileName);
+                //10.167.1.78\Intranetportal\Intranet Attachment\Deviation\
+                file.SaveAs(URLAttachment);
+                FileNameForDB = fileName;
+
+                try
+                {
+                    conn.Open();
+                    using (SqlCommand command = new SqlCommand("Insert_form_deviation", conn))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.Add("@PILIH", System.Data.SqlDbType.Int);
+                        command.Parameters["@PILIH"].Value = 2;
+
+                        command.Parameters.Add("@FILE_NAME_UPLOAD", System.Data.SqlDbType.VarChar);
+                        command.Parameters["@FILE_NAME_UPLOAD"].Value = FileNameForDB;
+
+                        command.Parameters.Add("@PATH_FILE", System.Data.SqlDbType.VarChar);
+                        command.Parameters["@PATH_FILE"].Value = URLAttachment;
+
+                        command.Parameters.Add("@REQID", System.Data.SqlDbType.VarChar);
+                        command.Parameters["@REQID"].Value = ReqID;
+
+                        result = (string)command.ExecuteScalar();
+                    }
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    result = ex.ToString();
+                }
+            }
+            return Json(result);
+        }
+
+        public ActionResult LoadAttachment(FormCollection formCollection)
+        {
+            string ReqID = formCollection["ReqID"];
+            DataTable dt = new DataTable();
+
+            List<string> ModelData = new List<string>();
+            SqlConnection conn = new SqlConnection(constr);
+            try
+            {
+                conn.Open();
+                using (SqlCommand command = new SqlCommand("Insert_form_deviation", conn))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.Add("@PILIH", System.Data.SqlDbType.Int);
+                    command.Parameters["@PILIH"].Value = 3;
+
+                    command.Parameters.Add("@REQID", System.Data.SqlDbType.VarChar);
+                    command.Parameters["@REQID"].Value = ReqID;
+
+                    SqlDataAdapter dataAdapt = new SqlDataAdapter();
+                    dataAdapt.SelectCommand = command;
+
+                    dataAdapt.Fill(dt);
+                }
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                ModelData.Add(ex.ToString());
+                return Json(ModelData);
+            }
+
+            List<Dictionary<string, object>> rows = new List<Dictionary<string, object>>();
+            if (dt.Rows.Count > 0)
+            {
+                
+                Dictionary<string, object> row;
+                foreach (DataRow dr in dt.Rows)
+                {
+                    row = new Dictionary<string, object>();
+                    foreach (DataColumn col in dt.Columns)
+                    {
+                        row.Add(col.ColumnName, dr[col]);
+                    }
+                    rows.Add(row);
+                }
+                return Json(rows);
+            }
+            else
+            {
+                ModelData.Add("Data Kosong !!");
+                return Json(rows);
+            }
+        }
+
+        public ActionResult DeleteAttachment(FormCollection formCollection)
+        {
+            int tempP = 0;
+            /*Delete Data*/
+            string ReqID = formCollection["ReqID"], fileName = formCollection["fileName"], result,
+                param = formCollection["param"];
+            DataTable dt = new DataTable();
+
+            List<string> ModelData = new List<string>();
+            SqlConnection conn = new SqlConnection(constr);
+            try
+            {
+                conn.Open();
+                using (SqlCommand command = new SqlCommand("Insert_form_deviation", conn))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.Add("@PILIH", System.Data.SqlDbType.Int);
+                    command.Parameters["@PILIH"].Value = 4;
+
+                    command.Parameters.Add("@REQID", System.Data.SqlDbType.VarChar);
+                    command.Parameters["@REQID"].Value = ReqID;
+
+                    command.Parameters.Add("@FILE_NAME_UPLOAD", System.Data.SqlDbType.VarChar);
+                    command.Parameters["@FILE_NAME_UPLOAD"].Value = fileName;
+
+                    result = (string)command.ExecuteScalar();
+
+                }
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                result = ex.ToString();
+                return Json(result);
+            }
+
+            /*Delete File*/
+            
+            if (!System.IO.File.Exists(param))
+            {
+                return Json(tempP);
+            }
+
+            try 
+            {
+                System.IO.File.Delete(param);
+                tempP = 1;
+                
+            }
+            catch (Exception e)
+            {
+                //Debug.WriteLine(e.Message);
+            }
+            return Json(tempP);
+        }
+
+        #endregion
+
+
+        #region Approval Atasan
+
+        public ActionResult ApproveSuperior()
+        {
+            return View();
+        }
+
+        public ActionResult GetDataDeviation(FormCollection formCollection)
+        {
+            string result, ReqID = formCollection["ReqID"];
+            List<string> ModelData = new List<string>();
+            SqlConnection conn = new SqlConnection(constr);
+            conn.Open();
+            using (SqlCommand command = new SqlCommand("Insert_form_deviation", conn))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add("@PILIH", System.Data.SqlDbType.Int);
+                command.Parameters["@PILIH"].Value = 5;
+
+                command.Parameters.Add("@REQID", System.Data.SqlDbType.VarChar);
+                command.Parameters["@REQID"].Value = ReqID;
+
+                result = (string)command.ExecuteScalar();
+            }
+            conn.Close();
+            ModelData.Add(result);
+            return Json(ModelData);
+        }
+        #endregion
     }
 }
