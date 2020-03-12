@@ -1,0 +1,228 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+    $(document).ready(function () {
+        $("#btnAddDev").click(function () {
+            window.location.href = "Home/Input";
+        });
+    });
+
+    $(document).ready(function () {
+        $("#BtnDetail").click(function () {
+            var tes = '10'
+            window.location.href = "Input?id="+tes;
+        });
+    });
+
+    $(document).ready(function () {
+        $("#BtnDelete").click(function () {
+            window.location.href = "Input";
+        });
+    });
+</script>
+
+
+<!--**********************************
+            Content body start
+***********************************-->
+<div class="content-body">
+    <div class="row page-titles mx-0">
+        <div class="col p-md-0">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+            </ol>
+        </div>
+    </div>
+    <!-- row -->
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">DEVIATION ONLINE</h4>
+                                <p class="text-muted">The <code>.dropdown-header</code> class is used to add headers inside the dropdown menu</p>
+                                <button id ="btnAddDev" type="button" class="btn mb-1 btn-success">
+                                    NEW <span class="btn-icon-right"><i class="fa fa-file-o"></i></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Data Table</h4>
+                                <div class="table-responsive">
+                                    <div class="button-icon">
+                                        <table class="table table-striped table-bordered zero-configuration">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Nama Reviewer</th>
+                                                    <th>Investigasi</th>
+                                                    <th>Creation Date</th>
+                                                    <th>Status</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Dani Pernando</td>
+                                                    <td>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
+                                                    <td>02 Feb 2020</td>
+                                                    <td>Open</td>
+                                                    <td>
+                                                        <button id = "BtnDetail" style="width:50% ; height : 20%" type="button" class="btn mb-1 btn-info">Detail</button>
+                                                        <button id = "BtnDelete" style="width:50% ; height : 20%" type="button" class="btn mb-1 btn-danger sweet-confirm">Delete</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>Steve Pernando</td>
+                                                    <td>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
+                                                    <td>01 Feb 2020</td>
+                                                    <td>Open</td>
+                                                    <td>
+                                                        <button style="width:50% ; height : 20%" type="button" class="btn mb-1 btn-info">Detail</button>
+                                                        <button style="width:50% ; height : 20%" type="button" class="btn mb-1 btn-danger sweet-confirm">Delete</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>Steve Pernando</td>
+                                                    <td>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
+                                                    <td>03 Feb 2020</td>
+                                                    <td>Open</td>
+                                                    <td>
+                                                        <button style="width:50% ; height : 20%" type="button" class="btn mb-1 btn-info">Detail</button>
+                                                        <button style="width:50% ; height : 20%" type="button" class="btn mb-1 btn-danger sweet-confirm">Delete</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td>Steve Pernando</td>
+                                                    <td>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
+                                                    <td>04 Feb 2020</td>
+                                                    <td>Open</td>
+                                                    <td>
+                                                        <button style="width:50% ; height : 20%" type="button" class="btn mb-1 btn-info">Detail</button>
+                                                        <button style="width:50% ; height : 20%" type="button" class="btn mb-1 btn-danger sweet-confirm">Delete</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5</td>
+                                                    <td>Steve Pernando</td>
+                                                    <td>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
+                                                    <td>02 Feb 2020</td>
+                                                    <td>Open</td>
+                                                    <td>
+                                                        <button style="width:50% ; height : 20%" type="button" class="btn mb-1 btn-info">Detail</button>
+                                                        <button style="width:50% ; height : 20%" type="button" class="btn mb-1 btn-danger sweet-confirm">Delete</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>6</td>
+                                                    <td>Steve Pernando</td>
+                                                    <td>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
+                                                    <td>03 Feb 2020</td>
+                                                    <td>Open</td>
+                                                    <td>
+                                                        <button style="width:50% ; height : 20%" type="button" class="btn mb-1 btn-info">Detail</button>
+                                                        <button style="width:50% ; height : 20%" type="button" class="btn mb-1 btn-danger sweet-confirm">Delete</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>7</td>
+                                                    <td>Steve Pernando</td>
+                                                    <td>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
+                                                    <td>05 Feb 2020</td>
+                                                    <td>Open</td>
+                                                    <td>
+                                                        <button style="width:50% ; height : 20%" type="button" class="btn mb-1 btn-info">Detail</button>
+                                                        <button style="width:50% ; height : 20%" type="button" class="btn mb-1 btn-danger sweet-confirm">Delete</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>8</td>
+                                                    <td>Steve Pernando</td>
+                                                    <td>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
+                                                    <td>02 Feb 2020</td>
+                                                    <td>Open</td>
+                                                    <td>
+                                                        <button style="width:50% ; height : 20%" type="button" class="btn mb-1 btn-info">Detail</button>
+                                                        <button style="width:50% ; height : 20%" type="button" class="btn mb-1 btn-danger sweet-confirm">Delete</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>9</td>
+                                                    <td>Steve Pernando</td>
+                                                    <td>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
+                                                    <td>02 Feb 2020</td>
+                                                    <td>Open</td>
+                                                    <td>
+                                                        <button style="width:50% ; height : 20%" type="button" class="btn mb-1 btn-info">Detail</button>
+                                                        <button style="width:50% ; height : 20%" type="button" class="btn mb-1 btn-danger sweet-confirm">Delete</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>10</td>
+                                                    <td>Steve Pernando</td>
+                                                    <td>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
+                                                    <td>02 Feb 2020</td>
+                                                    <td>Open</td>
+                                                    <td>
+                                                        <button style="width:50% ; height : 20%" type="button" class="btn mb-1 btn-info">Detail</button>
+                                                        <button style="width:50% ; height : 20%" type="button" class="btn mb-1 btn-danger sweet-confirm">Delete</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>11</td>
+                                                    <td>Steve Pernando</td>
+                                                    <td>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
+                                                    <td>02 Feb 2020</td>
+                                                    <td>Open</td>
+                                                    <td>
+                                                        <button style="width:50% ; height : 20%" type="button" class="btn mb-1 btn-info">Detail</button>
+                                                        <button style="width:50% ; height : 20%" type="button" class="btn mb-1 btn-danger sweet-confirm">Delete</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>12</td>
+                                                    <td>Steve Pernando</td>
+                                                    <td>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
+                                                    <td>02 Feb 2020</td>
+                                                    <td>Open</td>
+                                                    <td>
+                                                        <button style="width:50% ; height : 20%" type="button" class="btn mb-1 btn-info">Detail</button>
+                                                        <button style="width:50% ; height : 20%" type="button" class="btn mb-1 btn-danger sweet-confirm">Delete</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /# row -->
+    </div>
+    <!-- #/ container -->
+</div>
+<!--**********************************
+        Content body end
+***********************************-->
+
