@@ -55,7 +55,7 @@ namespace deviation.Controllers
                     //Search  
                     if (!string.IsNullOrEmpty(searchValue))
                     {
-                        deviationData = deviationData.Where(m => m.Location == searchValue || m.Location_site == searchValue || m.Problem == searchValue || m.REQ_ID == searchValue);
+                        deviationData = deviationData.Where(m => m.Location.Contains(searchValue) || m.Location_site.Contains(searchValue) || m.Problem.Contains(searchValue) || m.REQ_ID.Contains(searchValue));
                     }
 
                     //total number of rows count   
