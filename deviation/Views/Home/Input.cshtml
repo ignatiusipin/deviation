@@ -167,12 +167,12 @@
                                                             <div class="form-group">
                                                                 <div class="form-check form-check-inline">
                                                                     <label>
-                                                                        <input name="travel1" type="radio" data-travelNumber="1" id="travel_no_1" value="Tidak" checked> Tidak
+                                                                        <input name="travel1" type="radio" data-travelNumber="1" id="travel_no_1" value="No" checked> Tidak
                                                                     </label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <label>
-                                                                        <input type="radio" name="travel1" data-travelNumber="1" id="travel_yes_1" value="Ya"> Ya
+                                                                        <input type="radio" name="travel1" data-travelNumber="1" id="travel_yes_1" value="Yes"> Ya
                                                                     </label>
                                                                 </div>
                                                             </div>
@@ -188,12 +188,12 @@
                                                             <div class="form-group">
                                                                 <div class="form-check form-check-inline">
                                                                     <label>
-                                                                        <input name="travel2" type="radio" data-travelNumber="1" id="travel_no_2" value="Tidak" checked> Tidak
+                                                                        <input name="travel2" type="radio" data-travelNumber="1" id="travel_no_2" value="No" checked> Tidak
                                                                     </label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <label>
-                                                                        <input type="radio" name="travel2" data-travelNumber="1" id="travel_yes_2" value="Ya"> Ya
+                                                                        <input type="radio" name="travel2" data-travelNumber="1" id="travel_yes_2" value="Yes"> Ya
                                                                     </label>
                                                                 </div>
                                                             </div>
@@ -209,12 +209,12 @@
                                                             <div class="form-group">
                                                                 <div class="form-check form-check-inline">
                                                                     <label>
-                                                                        <input name="travel3" type="radio" data-travelNumber="1" id="travel_no_3" value="Tidak" checked> Tidak
+                                                                        <input name="travel3" type="radio" data-travelNumber="1" id="travel_no_3" value="No" checked> Tidak
                                                                     </label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <label>
-                                                                        <input type="radio" name="travel3" data-travelNumber="1" id="travel_yes_3" value="Ya"> Ya
+                                                                        <input type="radio" name="travel3" data-travelNumber="1" id="travel_yes_3" value="Yes"> Ya
                                                                     </label>
                                                                 </div>
                                                             </div>
@@ -228,166 +228,192 @@
                                                         <div class="col-sm-10">
                                                             <textarea id="txtTindakan" class="form-control" placeholder="Tindakan yang sudah dilakukan ketika penyimpangan / potensi penyimpangan terjadi"></textarea>
                                                             <div class="row" style="padding-top: 5px">
-                                                                <input id="txtUpload" class="col-sm-6" style="padding-top:10px;" type="file">
-                                                                <button type="button" class="col-sm-2 btn mb-1 btn-success form-control">Upload</button>
+                                                                @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                                                {
+                                                                    <input type="file" name="NamaFileUpload" class="col-sm-6" id="idFileUpload" style="padding-top:10px;" />
+                                                                    <hr />
+                                                                    <button type="button" id="btnUpload" class="col-sm-2 btn mb-1 btn-success form-control">Upload</button>
+                                                                }
+                                                                <!--<button type="button" class="col-sm-2 btn mb-1 btn-success form-control">Upload</button>-->
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                        <label class="col-sm-2 col-form-label"></label>
+                                                        <div class="col-sm-10">
+                                                            <div class="table-responsive">
+                                                                <table id="tbl_Attachment" class="table header-border">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th><b>No</b></th>
+                                                                            <th><b>File Name</b></th>
+                                                                            <th><b>Action</b></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody id="tbody_Attachment"></tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <!-- ************************** List Penilaian ***************************** -->
 
-                                <div class="col-lg-12">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="basic-form">
-                                                <form>
-                                                    <div class="form-group row">
-                                                        <h4 class="col-sm-6 col-form-label">Penilaian Potensi Dampak dari penyimpangan</h4>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="row">
-                                                            <div class="col">
-                                                                <label>Kualitas Produk</label><br />
-                                                                <div class="btn-group mb-2">
-                                                                    <div class="basic-dropdown">
-                                                                        <div class="dropdown">
-                                                                            <select id="ddlKualProd" title="Kualitas Produk"></select>
-                                                                        </div>
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="basic-form">
+                                            <form>
+                                                <div class="form-group row">
+                                                    <h4 class="col-sm-6 col-form-label">Penilaian Potensi Dampak dari penyimpangan</h4>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <label>Kualitas Produk</label>
+                                                            <br />
+                                                            <div class="btn-group mb-2">
+                                                                <div class="basic-dropdown">
+                                                                    <div class="dropdown">
+                                                                        <select id="ddlKualProd" title="Kualitas Produk"></select>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col">
-                                                                <label>Risiko Finansial</label><br />
-                                                                <div class="btn-group mb-2">
-                                                                    <div class="basic-dropdown">
-                                                                        <div class="dropdown">
-                                                                            <select id="ddlRiskFin" title="Risiko Finansial"></select>
-                                                                        </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label>Risiko Finansial</label>
+                                                            <br />
+                                                            <div class="btn-group mb-2">
+                                                                <div class="basic-dropdown">
+                                                                    <div class="dropdown">
+                                                                        <select id="ddlRiskFin" title="Risiko Finansial"></select>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col">
-                                                                <label>Risiko Kesehatan Personil</label><br />
-                                                                <div class="btn-group mb-2">
-                                                                    <div class="basic-dropdown">
-                                                                        <div class="dropdown">
-                                                                            <select id="ddlKesehatanPer" title="Risiko Kesehatan Personil"></select>
-                                                                        </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label>Risiko Kesehatan Personil</label>
+                                                            <br />
+                                                            <div class="btn-group mb-2">
+                                                                <div class="basic-dropdown">
+                                                                    <div class="dropdown">
+                                                                        <select id="ddlKesehatanPer" title="Risiko Kesehatan Personil"></select>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    
-                                                    <!-- Baris 2 -->
-                                                    <div class="form-group">
-                                                        <div class="row">
-                                                            <div class="col">
-                                                                <label>Compliance</label><br />
-                                                                <div class="btn-group mb-2">
-                                                                    <div class="basic-dropdown">
-                                                                        <div class="dropdown">
-                                                                            <select id="ddlCompliance" title="Compliance"></select>
-                                                                        </div>
+                                                </div>
+
+                                                <!-- Baris 2 -->
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <label>Compliance</label>
+                                                            <br />
+                                                            <div class="btn-group mb-2">
+                                                                <div class="basic-dropdown">
+                                                                    <div class="dropdown">
+                                                                        <select id="ddlCompliance" title="Compliance"></select>
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                        </div>
 
-                                                            <div class="col">
-                                                                <label>Risiko Organisasi</label><br />
-                                                                <div class="btn-group mb-2">
-                                                                    <div class="basic-dropdown">
-                                                                        <div class="dropdown">
-                                                                            <select id="ddlRiskOrg" title="Risiko Organisasi"></select>
-                                                                        </div>
+                                                        <div class="col">
+                                                            <label>Risiko Organisasi</label>
+                                                            <br />
+                                                            <div class="btn-group mb-2">
+                                                                <div class="basic-dropdown">
+                                                                    <div class="dropdown">
+                                                                        <select id="ddlRiskOrg" title="Risiko Organisasi"></select>
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                        </div>
 
-                                                            <div class="col">
-                                                                <label>Risiko Lingkungan</label><br />
-                                                                <div class="btn-group mb-2">
-                                                                    <div class="basic-dropdown">
-                                                                        <div class="dropdown">
-                                                                            <select id="ddlResLingk" title="Risiko Lingkungan"></select>
-                                                                        </div>
+                                                        <div class="col">
+                                                            <label>Risiko Lingkungan</label>
+                                                            <br />
+                                                            <div class="btn-group mb-2">
+                                                                <div class="basic-dropdown">
+                                                                    <div class="dropdown">
+                                                                        <select id="ddlResLingk" title="Risiko Lingkungan"></select>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                </div>
 
-                                                    <!-- Baris 3-->
-                                                    <div class="form-group">
-                                                        <div class="row">
-                                                            <div class="col">
-                                                                <label>Risiko Operasional</label><br />
-                                                                <div class="btn-group mb-2">
-                                                                    <div class="basic-dropdown">
-                                                                        <div class="dropdown">
-                                                                            <select id="ddlRiskOpr" title="Risiko Operasional"></select>
-                                                                        </div>
+                                                <!-- Baris 3-->
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <label>Risiko Operasional</label>
+                                                            <br />
+                                                            <div class="btn-group mb-2">
+                                                                <div class="basic-dropdown">
+                                                                    <div class="dropdown">
+                                                                        <select id="ddlRiskOpr" title="Risiko Operasional"></select>
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                        </div>
 
-                                                            <div class="col">
-                                                                <label>Risiko Keamanan Personil</label><br />
-                                                                <div class="btn-group mb-2">
-                                                                    <div class="basic-dropdown">
-                                                                        <div class="dropdown">
-                                                                            <select id="ddlKeamamananP" title="Risiko Keamanan Personil"></select>
-                                                                        </div>
+                                                        <div class="col">
+                                                            <label>Risiko Keamanan Personil</label>
+                                                            <br />
+                                                            <div class="btn-group mb-2">
+                                                                <div class="basic-dropdown">
+                                                                    <div class="dropdown">
+                                                                        <select id="ddlKeamamananP" title="Risiko Keamanan Personil"></select>
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                        </div>
 
-                                                            <div class="col">
-                                                                <label>Risiko Intelektual</label><br />
-                                                                <div class="btn-group mb-2">
-                                                                    <div class="basic-dropdown">
-                                                                        <div class="dropdown">
-                                                                            <select id="ddlRiskIntelek" title="Risiko Intelektual"></select>
-                                                                        </div>
+                                                        <div class="col">
+                                                            <label>Risiko Intelektual</label>
+                                                            <br />
+                                                            <div class="btn-group mb-2">
+                                                                <div class="basic-dropdown">
+                                                                    <div class="dropdown">
+                                                                        <select id="ddlRiskIntelek" title="Risiko Intelektual"></select>
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                        </div>
 
                                                     </div>
                                                 </div>
 
-
-                                                    <div class="form-group">
-                                                        <div class="row">
-                                                            <div class="col">
-                                                                <label>Tingkat Keparahan Penyimpangan</label><br />
-                                                                <div class="btn-group mb-2">
-                                                                    <input id="txtKeparahan" type="text" class="form-control" readonly="readonly">
-                                                                </div>
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <label>Tingkat Keparahan Penyimpangan</label>
+                                                            <br />
+                                                            <div class="btn-group mb-2">
+                                                                <input id="txtKeparahan" type="text" class="form-control" readonly="readonly">
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group row">
-                                                        <div class="col-sm-3">
-                                                            <button id="btnSaveForm" type="button" class="btn mb-1 btn-success">
-                                                                Submit Penyimpangan <span class="btn-icon-right"><i class="fa fa-lock"></i></span>
-                                                            </button>
-                                                        </div>
-
-
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-sm-3">
+                                                        <button id="btnSaveForm" type="button" class="btn mb-1 btn-success">
+                                                            Submit Penyimpangan <span class="btn-icon-right"><i class="fa fa-lock"></i></span>
+                                                        </button>
                                                     </div>
-                                                    <!-- End Form-->
-                                                </form>
-                                            </div>
+                                                </div>
+                                                <!-- End Form-->
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
-
-
                             </div>
+
                         </div>
                         <!-- #/ container -->
                     </div>
@@ -400,37 +426,14 @@
                         //}
 
                         $(document).ready(function () {
-                            // Start Show Date
-                            var d = new Date();
-                            var day = d.getDay();
-                            var date = d.getDate();
-                            var year = d.getFullYear();
-                            var month = d.getMonth();
-                            var hour = d.getHours();
-                            hour = (hour < 10) ? ("0" + hour) : hour;
-                            var minuts = d.getMinutes();
-                            minuts = (minuts < 10) ? ("0" + minuts) : minuts;
-                            var monthArr = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "October", "November", "Desember"];
-                            var daysArr = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
-                            month = monthArr[month];
-                            day = daysArr[day];
+                            GenerateDate(); 
 
-                            $('#TbTglCreated').attr("placeholder", date + " " + month + " " + year + " " + hour + ":" + minuts);
-                            // End Date
-
-                            $("textarea[name = 'travelDetails']").attr("disabled", true);
-                            $("input[type=radio]").change(function () {
-                                var id = $(this).attr("id").split("_");
-                                id = id[id.length - 1];
-
-                                $("#txt" + id).attr("disabled", !($(this).val() == "Yes"));
-                            });
-
-                            $('#ddlSite selectpicker').selectpicker();
-
+                            // Generate NO ReqID
+                            GenerateReqID();
+                            SetupRbDtPicker();
                             GetDDLSite();
-                            $("#ddlJenSi").attr('hidden', true);
-
+                            
+                            /* Function Save */
                             $("#btnSaveForm").click(function () {
 
                                 var DEVIATION_NO = $("#TbNmrDev").val();
@@ -445,14 +448,14 @@
                                 var CR_DATE_USER = $("#TbTglCreated").val();
                                 var LOCATION = $("#txtLokasi").val();
 
-
+                                
                                 var USER_INVOLVED = $("#txtWho").val();
                                 var ORDER_OF_EVENTS = $("#txtHow").val();
-                                var SAME_POTEN_DEV_FLAG = $('input[name="travel1"]:checked').val();
+                                var SAME_POTEN_DEV_FLAG = $(".travel1").selected;
                                 var SAME_POTEN_DEV = $("#txt1").val();
-                                var POTEN_DEV_RLS_FLG = $('input[name="travel2"]:checked').val();
+                                var POTEN_DEV_RLS_FLG = $(".travel2").selected;
                                 var POTEN_DEV_RLS = $("#txt2").val();
-                                var POTEN_DEV_OTH_FLG = $('input[name="travel3"]:checked').val();
+                                var POTEN_DEV_OTH_FLG = $(".travel3").selected;
                                 var POTEN_DEV_OTH = $("#txt3").val();
                                 var ACTION_WHEN_DEV = $("#txtTindakan").val();
                                 var FILE_UPLOAD_ID = $("#txtUpload").val();
@@ -513,9 +516,178 @@
                                     success: function (data) {
                                         alert('Form Submited');
                                     }
+                                    , error: function (textStatus, errorThrown) {
+                                        alert(textStatus);
+                                    }
                                 });
                             });
+
+                            /* Function Upload */
+                            $("#btnUpload").click(function () {
+                                var formData = new FormData();
+                                var REQID = $("#lblReq").text();
+                                var totalFiles = document.getElementById("idFileUpload").files.length;
+
+                                for (var i = 0; i < totalFiles; i++) {
+                                    var file = document.getElementById("idFileUpload").files[i];
+                                    formData.append("idFileUpload", file);
+                                    formData.append("ReqID", REQID);
+                                }
+
+                                if (file.name != null || file.name != "") {
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "UploadAttachment",
+                                        data: formData,
+                                        dataType: "json",
+                                        contentType: false,
+                                        processData: false,
+                                        success: function (data) {
+                                            alert('Uploaded !');
+                                            formData.append("ReqID", REQID);
+                                            GetAttachment(REQID);                                            
+                                        }
+                                        , error: function (textStatus, errorThrown) {
+                                            alert(textStatus);
+                                        }
+                                    });
+                                }
+
+
+                            });
+                            
                         });
+
+                        
+
+                        function GetAttachment(REQID) {
+
+                            var formData = new FormData();
+                            formData.append("ReqID", REQID);
+
+                            $.ajax({
+                                type: "POST",
+                                url: "LoadAttachment",
+                                data: formData,
+                                dataType: "json",
+                                contentType: false,
+                                processData: false,
+                                success: function (data) {
+
+                                    alert('Get Attachment !!!'); 
+
+                                    var trHTML = '';
+                                    var trav = 0;
+                                    var Count = data.length;
+
+                                    if (Count > 0) {
+                                        for (trav = 0; trav < Count; trav++) {
+                                            var no = 1
+                                            no = no + trav
+                                            trHTML += '<tr><td>' + no + '</td><td>' + data[trav].file_name_upload + '</td><td><span><button type="button" name="BtnDelete" dtnm ="' + data[trav].path_file + '"  dtmm="' + data[trav].file_name_upload + '" href="javascript:;"   class="Delete btn mb-1" title="Delete" >Delete</button></span></td></tr>';
+                                        }
+
+                                        $("#tbl_Attachment").show();
+                                        $("#tbody_Attachment").empty();
+                                        $("#tbody_Attachment").append(trHTML);
+                                       
+
+                                        $("button[name='BtnDelete']").click(function () {
+                                            //do stuff
+                                            var tpath = $(this).attr("dtnm");
+                                            formData.append("param", tpath);
+
+                                            var fileName = $(this).attr("dtmm");
+                                            formData.append("fileName", fileName);
+
+                                            $.ajax({
+                                                url: "DeleteAttachment",
+                                                type: "post",
+                                                dataType: "json",
+                                                data: formData,
+                                                contentType: false,
+                                                processData: false,
+                                                success: function (data) {
+                                                    alert('Deleted!')
+                                                    GetAttachment(REQID)
+                                                },
+                                                error: function (textStatus, errorThrown) {
+                                                    alert('Error');
+                                                    alert(textStatus);
+                                                }
+                                            });
+                                        });
+                                    }
+                                    else
+                                    {
+                                        $("#tbl_Attachment").hide();
+                                    }
+                                   
+                                }
+                                , error: function (textStatus, errorThrown) {
+                                    alert(textStatus);
+                                }
+                            });
+                        }
+
+                       
+
+                        function SetupRbDtPicker() {
+
+                           
+                            $("input[name='travel1'][value='No']").prop('checked', true);
+                            $("input[name='travel2'][value='No']").prop('checked', true);
+                            $("input[name='travel3'][value='No']").prop('checked', true);
+                            $("textarea[name = 'travelDetails']").val('');
+
+                            $("input[type=radio]").change(function () {
+                                var id = $(this).attr("id").split("_");
+                                id = id[id.length - 1];
+
+                                $("#txt" + id).attr("disabled", !($(this).val() == "Yes"));
+                            });
+                            $("textarea[name = 'travelDetails']").attr("disabled", true);
+                            $('#ddlSite selectpicker').selectpicker();
+                        }
+
+                        function GenerateDate() {
+                            // Start Show Date
+                            var d = new Date();
+                            var day = d.getDay();
+                            var date = d.getDate();
+                            date = (date < 10) ? ("0" + date) : date;
+                            var year = d.getFullYear();
+                            var month = d.getMonth();
+                            var xx = d.getMonth();
+                            var hour = d.getHours();
+                            hour = (hour < 10) ? ("0" + hour) : hour;
+                            var minuts = d.getMinutes();
+                            minuts = (minuts < 10) ? ("0" + minuts) : minuts;
+                            var monthArr = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "October", "November", "Desember"];
+                            var daysArr = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+                            month = monthArr[month];
+                            day = daysArr[day];
+
+                            $('#TbTglCreated').attr("placeholder", date + " " + month + " " + year + " " + hour + ":" + minuts);
+
+                            
+                        }
+
+                        function GenerateReqID() {
+                            $.ajax({
+                                url: "GenerateNoReqID",
+                                type: "POST",
+                                datatype: "json",
+                                contentType: "application/json;charset=utf-8",
+                                success: function (data) {
+                                    $('#lblReq').text(data);
+                                    GetAttachment(data);
+                                }
+                                ,
+                                error: function (textStatus, errorThrown) {
+                                }
+                            });
+                        }
 
                         function GetDDLSite() {
                             $("#ddlJenSi").attr('hidden', true);
