@@ -228,28 +228,8 @@
                                                         <div class="col-sm-10">
                                                             <textarea id="txtTindakan" class="form-control" placeholder="Tindakan yang sudah dilakukan ketika penyimpangan / potensi penyimpangan terjadi"></textarea>
                                                             <div class="row" style="padding-top: 5px">
-                                                                @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                                                                {
-                                                                    <input type="file" name="NamaFileUpload" class="col-sm-6" id="idFileUpload" style="padding-top:10px;" />
-                                                                    <hr />
-                                                                    <button type="button" id="btnUpload" class="col-sm-2 btn mb-1 btn-success form-control">Upload</button>
-                                                                }
-                                                                <!--<button type="button" class="col-sm-2 btn mb-1 btn-success form-control">Upload</button>-->
-                                                            </div>
-                                                        </div>
-                                                        <label class="col-sm-2 col-form-label"></label>
-                                                        <div class="col-sm-10">
-                                                            <div class="table-responsive">
-                                                                <table id="tbl_Attachment" class="table header-border">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th><b>No</b></th>
-                                                                            <th><b>File Name</b></th>
-                                                                            <th><b>Action</b></th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody id="tbody_Attachment"></tbody>
-                                                                </table>
+                                                                <input id="txtUpload" class="col-sm-6" style="padding-top:10px;" type="file">
+                                                                <button type="button" class="col-sm-2 btn mb-1 btn-success form-control">Upload</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -258,9 +238,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- ************************** List Penilaian ***************************** -->
-                            <div class="row">
+
                                 <div class="col-lg-12">
                                     <div class="card">
                                         <div class="card-body">
@@ -272,8 +250,7 @@
                                                     <div class="form-group">
                                                         <div class="row">
                                                             <div class="col">
-                                                                <label>Kualitas Produk</label>
-                                                                <br />
+                                                                <label>Kualitas Produk</label><br />
                                                                 <div class="btn-group mb-2">
                                                                     <div class="basic-dropdown">
                                                                         <div class="dropdown">
@@ -283,8 +260,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col">
-                                                                <label>Risiko Finansial</label>
-                                                                <br />
+                                                                <label>Risiko Finansial</label><br />
                                                                 <div class="btn-group mb-2">
                                                                     <div class="basic-dropdown">
                                                                         <div class="dropdown">
@@ -294,8 +270,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col">
-                                                                <label>Risiko Kesehatan Personil</label>
-                                                                <br />
+                                                                <label>Risiko Kesehatan Personil</label><br />
                                                                 <div class="btn-group mb-2">
                                                                     <div class="basic-dropdown">
                                                                         <div class="dropdown">
@@ -306,13 +281,12 @@
                                                             </div>
                                                         </div>
                                                     </div>
-
+                                                    
                                                     <!-- Baris 2 -->
                                                     <div class="form-group">
                                                         <div class="row">
                                                             <div class="col">
-                                                                <label>Compliance</label>
-                                                                <br />
+                                                                <label>Compliance</label><br />
                                                                 <div class="btn-group mb-2">
                                                                     <div class="basic-dropdown">
                                                                         <div class="dropdown">
@@ -323,8 +297,7 @@
                                                             </div>
 
                                                             <div class="col">
-                                                                <label>Risiko Organisasi</label>
-                                                                <br />
+                                                                <label>Risiko Organisasi</label><br />
                                                                 <div class="btn-group mb-2">
                                                                     <div class="basic-dropdown">
                                                                         <div class="dropdown">
@@ -335,8 +308,7 @@
                                                             </div>
 
                                                             <div class="col">
-                                                                <label>Risiko Lingkungan</label>
-                                                                <br />
+                                                                <label>Risiko Lingkungan</label><br />
                                                                 <div class="btn-group mb-2">
                                                                     <div class="basic-dropdown">
                                                                         <div class="dropdown">
@@ -352,8 +324,7 @@
                                                     <div class="form-group">
                                                         <div class="row">
                                                             <div class="col">
-                                                                <label>Risiko Operasional</label>
-                                                                <br />
+                                                                <label>Risiko Operasional</label><br />
                                                                 <div class="btn-group mb-2">
                                                                     <div class="basic-dropdown">
                                                                         <div class="dropdown">
@@ -364,8 +335,7 @@
                                                             </div>
 
                                                             <div class="col">
-                                                                <label>Risiko Keamanan Personil</label>
-                                                                <br />
+                                                                <label>Risiko Keamanan Personil</label><br />
                                                                 <div class="btn-group mb-2">
                                                                     <div class="basic-dropdown">
                                                                         <div class="dropdown">
@@ -376,8 +346,7 @@
                                                             </div>
 
                                                             <div class="col">
-                                                                <label>Risiko Intelektual</label>
-                                                                <br />
+                                                                <label>Risiko Intelektual</label><br />
                                                                 <div class="btn-group mb-2">
                                                                     <div class="basic-dropdown">
                                                                         <div class="dropdown">
@@ -387,14 +356,14 @@
                                                                 </div>
                                                             </div>
 
-                                                        </div>
                                                     </div>
+                                                </div>
+
 
                                                     <div class="form-group">
                                                         <div class="row">
                                                             <div class="col">
-                                                                <label>Tingkat Keparahan Penyimpangan</label>
-                                                                <br />
+                                                                <label>Tingkat Keparahan Penyimpangan</label><br />
                                                                 <div class="btn-group mb-2">
                                                                     <input id="txtKeparahan" type="text" class="form-control" readonly="readonly">
                                                                 </div>
@@ -402,11 +371,13 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
-                                                        <div class="col-sm-2">
+                                                        <div class="col-sm-3">
                                                             <button id="btnSaveForm" type="button" class="btn mb-1 btn-success">
-                                                                Submit <span class="btn-icon-right btn-group-lg"><i class="fa fa-lock"></i></span>
+                                                                Submit Penyimpangan <span class="btn-icon-right"><i class="fa fa-lock"></i></span>
                                                             </button>
                                                         </div>
+
+
                                                     </div>
                                                     <!-- End Form-->
                                                 </form>
@@ -414,21 +385,52 @@
                                         </div>
                                     </div>
                                 </div>
+
+
                             </div>
+                        </div>
                         <!-- #/ container -->
                     </div>
                     <!--**********************************
                             Content body end
                         ***********************************-->
                     <script>
-                        $(document).ready(function () {
-                            GenerateDate(); 
-                            // Generate NO ReqID
-                            GenerateReqID();
-                            SetupRbDtPicker();
-                            GetDDLSite();
+                        //window.onbeforeunload = function () {
+                        //    return 'Apakah kamu yakin untuk me-reload page?';
+                        //}
 
-                            /* Function Save */
+                        $(document).ready(function () {
+                            // Start Show Date
+                            var d = new Date();
+                            var day = d.getDay();
+                            var date = d.getDate();
+                            var year = d.getFullYear();
+                            var month = d.getMonth();
+                            var hour = d.getHours();
+                            hour = (hour < 10) ? ("0" + hour) : hour;
+                            var minuts = d.getMinutes();
+                            minuts = (minuts < 10) ? ("0" + minuts) : minuts;
+                            var monthArr = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "October", "November", "Desember"];
+                            var daysArr = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+                            month = monthArr[month];
+                            day = daysArr[day];
+
+                            $('#TbTglCreated').attr("placeholder", date + " " + month + " " + year + " " + hour + ":" + minuts);
+                            // End Date
+
+                            $("textarea[name = 'travelDetails']").attr("disabled", true);
+                            $("input[type=radio]").change(function () {
+                                var id = $(this).attr("id").split("_");
+                                id = id[id.length - 1];
+
+                                $("#txt" + id).attr("disabled", !($(this).val() == "Yes"));
+                            });
+
+                            $('#ddlSite selectpicker').selectpicker();
+
+                            GetDDLSite();
+                            $("#ddlJenSi").attr('hidden', true);
+
                             $("#btnSaveForm").click(function () {
 
                                 var DEVIATION_NO = $("#TbNmrDev").val();
@@ -443,9 +445,6 @@
                                 var CR_DATE_USER = $("#TbTglCreated").val();
                                 var LOCATION = $("#txtLokasi").val();
 
-                                //alert($("input[name=travel1]").val());
-                                //alert($("input[name=travel2]").val());
-                                //alert($("input[name=travel3]").val());
 
                                 var USER_INVOLVED = $("#txtWho").val();
                                 var ORDER_OF_EVENTS = $("#txtHow").val();
@@ -513,187 +512,10 @@
                                     contentType: "application/json;charset=utf-8",
                                     success: function (data) {
                                         alert('Form Submited');
-                                        window.location.href = "/Home/";
-                                    }
-                                    , error: function (textStatus, errorThrown) {
-                                        alert(textStatus);
                                     }
                                 });
                             });
-                           
-                            /* Function Upload */
-                            $("#btnUpload").click(function () {
-                                var formData = new FormData();
-                                var REQID = $("#lblReq").text();
-                                formData.append("ReqID", REQID);
-
-                                var totalFiles = document.getElementById("idFileUpload").files.length;
-
-                                for (var i = 0; i < totalFiles; i++) {
-                                    var file = document.getElementById("idFileUpload").files[i];
-                                    formData.append("idFileUpload", file);
-                                }
-
-                                if (file.name != null || file.name != "") {
-                                    $.ajax({
-                                        type: "POST",
-                                        url: "UploadAttachment",
-                                        data: formData,
-                                        dataType: "json",
-                                        contentType: false,
-                                        processData: false,
-                                        success: function (data) {                                            
-                                            alert('Uploaded !');
-                                            GetAttachment(REQID);
-                                        }
-                                        , error: function (textStatus, errorThrown) {
-                                            alert(textStatus);
-                                        }
-                                    });
-                                }
-                            });
-
-                            $('#btnSaveForm').on('mousedown', stopNavigate);
                         });
-
-
-                        window.onbeforeunload = function () {
-                            return 'Are you sure you want to leave?';
-                        };
-
-                        document.getElementById('btnSaveForm')[0].onclick = function () {
-                            window.btn_clicked = true;
-                        };
-                        window.onbeforeunload = function () {
-                            if (!window.btn_clicked) {
-                                return 'If you leave now your order will be canceled.';
-                            }
-                        };
-
-                        
-                        function GetAttachment(REQID) {
-
-                            var formData = new FormData();
-                            formData.append("ReqID", REQID);
-
-                            $.ajax({
-                                type: "POST",
-                                url: "LoadAttachment",
-                                data: formData,
-                                dataType: "json",
-                                contentType: false,
-                                processData: false,
-                                success: function (data) {
-
-                                    var trHTML = '';
-                                    var trav = 0;
-                                    var Count = data.length;
-                                    
-                                    if (Count > 0) {
-                                        for (trav = 0; trav < Count; trav++)
-                                        {
-                                            var no = 1
-                                            no = no + trav                                     
-                                            trHTML += '<tr><td>' + no + '</td><td>' + data[trav].file_name_upload + '</td><td><span><button type="button" name="BtnDelete" dtnm ="' + data[trav].path_file + '"  dtmm="' + data[trav].file_name_upload +'" href="javascript:;"   class="Delete btn mb-1" title="Delete" >Delete</button></span></td></tr>';
-                                        }
-                                       
-                                        $("#tbody_Attachment").empty();
-                                        $("#tbody_Attachment").append(trHTML);
-                                        $("#tbl_Attachment").show();
-
-                                        $("button[name='BtnDelete']").click(function () {
-                                            //do stuff
-                                            var tpath = $(this).attr("dtnm");
-                                            formData.append("param", tpath);
-
-                                            var fileName = $(this).attr("dtmm");
-                                            formData.append("fileName", fileName);
-
-                                            $.ajax({
-                                                url: "DeleteAttachment",
-                                                type: "post",
-                                                dataType: "json",
-                                                data: formData,
-                                                contentType: false,
-                                                processData: false,
-                                                success: function (data) {
-                                                    alert('Deleted!')
-                                                    GetAttachment(REQID)
-                                                },
-                                                error: function (textStatus, errorThrown) {
-                                                    alert('Error');
-                                                    alert(textStatus);
-                                                }
-                                            });
-                                        });
-                                    }
-                                    else {
-                                        $("#tbl_Attachment").hide();
-                                    }  
-                                                                       
-                                }
-                                , error: function (textStatus, errorThrown) {
-                                    alert(textStatus);
-                                }
-                            });
-                            
-                        }
-
-                        function SetupRbDtPicker() {
-                            
-                            $("input[name='travel1'][value='Tidak']").prop('checked', true);
-                            $("input[name='travel2'][value='Tidak']").prop('checked', true);
-                            $("input[name='travel3'][value='Tidak']").prop('checked', true);
-                            $("textarea[name = 'travelDetails']").val('');
-
-                            $("input[type=radio]").change(function () {
-                                var id = $(this).attr("id").split("_");
-                                id = id[id.length - 1];
-
-                                $("#txt" + id).attr("disabled", !($(this).val() == "Ya"));
-                            });
-                            $("textarea[name = 'travelDetails']").attr("disabled", true);
-                            $('#ddlSite selectpicker').selectpicker();
-                        }
-
-                        function GenerateDate() {
-                            // Start Show Date
-                            var d = new Date();
-                            var day = d.getDay();
-                            var date = d.getDate();
-                            date = (date < 10) ? ("0" + date) : date;
-                            var year = d.getFullYear();
-                            var month = d.getMonth();
-                            var xx = d.getMonth();
-                            var hour = d.getHours();
-                            hour = (hour < 10) ? ("0" + hour) : hour;
-                            var minuts = d.getMinutes();
-                            minuts = (minuts < 10) ? ("0" + minuts) : minuts;
-                            var monthArr = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "October", "November", "Desember"];
-                            var daysArr = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
-                            month = monthArr[month];
-                            day = daysArr[day];
-
-                            $('#TbTglCreated').attr("placeholder", date + " " + month + " " + year + " " + hour + ":" + minuts);
-
-                            
-                        }
-
-                        function GenerateReqID() {
-                            $.ajax({
-                                url: "GenerateNoReqID",
-                                type: "POST",
-                                datatype: "json",
-                                contentType: "application/json;charset=utf-8",
-                                success: function (data) {
-                                    $('#lblReq').text(data);
-                                    GetAttachment(data);
-                                }
-                                ,
-                                error: function (textStatus, errorThrown) {
-                                }
-                            });
-                        }
 
                         function GetDDLSite() {
                             $("#ddlJenSi").attr('hidden', true);

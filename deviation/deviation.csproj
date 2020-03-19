@@ -5298,6 +5298,10 @@
     <Content Include="Views\Approval\Index.cshtml" />
     <Content Include="Views\Approval\List_Pending.cshtml" />
     <None Include="packages.config" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Input.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\ApproveSuperior.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
