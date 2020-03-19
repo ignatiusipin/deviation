@@ -73,5 +73,10 @@ namespace deviation.Controllers
                 throw;
             }
         }
+
+        public ActionResult DetailForm()
+        {
+            return View();
+        }
     }
 }
