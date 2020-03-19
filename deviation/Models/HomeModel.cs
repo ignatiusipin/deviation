@@ -10,6 +10,7 @@ namespace deviation.Models
     {
         
     }
+    
     public class Form_deviation
     {
         public string Deviation_id { get; set; }
@@ -27,11 +28,11 @@ namespace deviation.Models
         public string Location { get; set; }        
         public string User_involved { get; set; }        
         public string Order_of_events { get; set; }
-        public bool Same_potent_dev_flg { get; set; }
+        public string Same_potent_dev_flg { get; set; }
         public string Same_potent_dev { get; set; }
-        public bool Poten_dev_rls_flg { get; set; }
+        public string Poten_dev_rls_flg { get; set; }
         public string Poten_dev_rls { get; set; }
-        public bool Poten_dev_oth_flg { get; set; }
+        public string Poten_dev_oth_flg { get; set; }
         public string Poten_dev_oth { get; set; }
         public string Action_when_dev { get; set; }
         public string File_upload_id { get; set; }

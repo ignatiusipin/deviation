@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "PendingList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="content-body">
+    <div class="row page-titles mx-0">
+        <div class="col p-md-0">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+            </ol>
+        </div>
+    </div>
+    <!-- row -->
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Data Table</h4>
+                        <div class="table-responsive">
+                            <table id="tblList" class="table table-striped table-bordered zero-configuration">
+                                <thead>
+                                    <tr>
+                                        <th>REQ ID</th>
+                                        <th>Problem</th>
+                                        <th>Departement</th>
+                                        <th>Tanggal Kejadian</th>
+                                        <th>Kategori Deviasi</th>
+                                        <th>Location</th>
+                                        <th>Details</th>
+                                        <th>Approve</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script>
+        $(document).ready(function () {
+            $("#tblList").DataTable({
+
+                "processing": true, // for show progress bar
+                "serverSide": true, // for process server side
+                "filter": true, // this is for disable filter (search box)
+                "orderMulti": false, // for disable multiple column at once
+                "pageLength": 10,
+
+                "ajax": {
+                    "url": "/Approve/LoadPendingApprove",
+                    "type": "POST",
+                    "datatype": "json"
+                },
+
+                "columns": [
+                    { "data": "REQ_ID", "name": "REQ_ID"},
+                    { "data": "Problem", "name": "Problem" },
+                    { "data": "Departement", "title": "Departement", "name": "ContactName"},
+                    { "data": "Date_of_incident", "name": "Date_of_incident" },
+                    { "data": "Deviation_category", "name": "Deviation_category" },
+                    { "data": "Location", "name": "Location" },
+
+                    {
+                        "render": function (data, type, full, meta) {
+                            return '<a class="btn btn-info" href="/Demo/Edit/' + full.CustomerID + '">Edit</a>';
+                        }
+                    },
+
+                    {
+                        data: null, render: function (data, type, row) {
+                            return "<a href='#' class='btn btn-danger' onclick=DeleteData('" + row.CustomerID + "'); >Delete</a>";
+                        }
+                    },
+
+                ]
+
+            });
+        });
+    </script>
