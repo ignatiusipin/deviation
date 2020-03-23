@@ -420,19 +420,19 @@ namespace deviation.Controllers
                 command.Parameters.Add("@ORDER_OF_EVENTS", System.Data.SqlDbType.VarChar);
                 command.Parameters["@ORDER_OF_EVENTS"].Value = FD.Order_of_events;
                 /* ****** 1 */
-                command.Parameters.Add("@SAME_POTEN_DEV_FLAG", System.Data.SqlDbType.Bit);
+                command.Parameters.Add("@SAME_POTEN_DEV_FLAG", System.Data.SqlDbType.VarChar);
                 command.Parameters["@SAME_POTEN_DEV_FLAG"].Value = FD.Same_potent_dev_flg;
 
                 command.Parameters.Add("@SAME_POTEN_DEV", System.Data.SqlDbType.VarChar);
                 command.Parameters["@SAME_POTEN_DEV"].Value = FD.Same_potent_dev;
                 /* ****** 2 */
-                command.Parameters.Add("@POTEN_DEV_RLS_FLG", System.Data.SqlDbType.Bit);
+                command.Parameters.Add("@POTEN_DEV_RLS_FLG", System.Data.SqlDbType.VarChar);
                 command.Parameters["@POTEN_DEV_RLS_FLG"].Value = FD.Poten_dev_rls_flg;
 
                 command.Parameters.Add("@POTEN_DEV_RLS", System.Data.SqlDbType.VarChar);
                 command.Parameters["@POTEN_DEV_RLS"].Value = FD.Poten_dev_rls;
                 /* ****** 3 */
-                command.Parameters.Add("@POTEN_DEV_OTH_FLG", System.Data.SqlDbType.Bit);
+                command.Parameters.Add("@POTEN_DEV_OTH_FLG", System.Data.SqlDbType.VarChar);
                 command.Parameters["@POTEN_DEV_OTH_FLG"].Value = FD.Poten_dev_oth_flg;
 
                 command.Parameters.Add("@POTEN_DEV_OTH", System.Data.SqlDbType.VarChar);
@@ -649,13 +649,5 @@ namespace deviation.Controllers
 
         #endregion
 
-
-        #region Approval Atasan
-
-        public ActionResult ApproveSuperior()
-        {
-            return View();
-        }
-        #endregion
     }
 }

@@ -1,0 +1,519 @@
+﻿
+                    @{
+                        ViewBag.Title = "DetailForm";
+                        Layout = "~/Views/Shared/_Layout.cshtml";
+                    }
+                    <!--**********************************
+                                Content body start
+                    ***********************************-->
+                    <div class="content-body">
+                        <div class="row page-titles mx-0">
+                            <div class="col p-md-0">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+                                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Detail Form</a></li>
+                                </ol>
+                            </div>
+                        </div>
+                        <!-- row -->
+                        <!-- ************************************************      FORM Deviation ************************************************ -->
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4 class="d-inline">Laporan Penyimpangan </h4>
+                                            <div class="form-group row">
+                                                <div class="col">
+                                                    <br />
+                                                    <label>Register Number</label>
+                                                    <br />
+                                                    <label id="lblReq" style="font-weight:bold">@ViewBag.REQID</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col">
+                                                    <label>Tanggal</label>
+                                                    <input id="TbTglCreated" class="form-control" readonly="readonly">
+                                                </div>
+                                                <div class="col">
+                                                    <label>Nomer Deviation</label>
+                                                    <input id="TbNmrDev" type="text" class="form-control" readonly="readonly">
+                                                </div>
+                                                <div class="col">
+                                                    <label>Pengusul</label>
+                                                    <input id="TbPesul" type="text" class="form-control" readonly="readonly">
+                                                </div>
+                                                <div class="col">
+                                                    <label>Departemen</label>
+                                                    <input id="TbDeptPusul" type="text" class="form-control" readonly="readonly">
+                                                </div>
+                                            </div>
+                                            <!-- Readonly End -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="basic-form">
+                                                <form>
+                                                    <!-- Site -->
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-2 col-form-label">Site</label>
+                                                        <div class="col-sm-3">
+                                                            <div class="btn-group mb-2">
+                                                                <div class="basic-dropdown">
+                                                                    <div class="dropdown">
+                                                                        <select id="ddlSite"></select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-2 col-form-label">Kategori Penyimpangan</label>
+                                                        <div class="col-sm-3">
+                                                            <div class="btn-group mb-2">
+                                                                <div class="basic-dropdown">
+                                                                    <div class="dropdown">
+                                                                        <select id="ddlKategori"></select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <br>
+                                                            <div id="divsimpang" class="btn-group mb-2">
+                                                                <div class="basic-dropdown">
+                                                                    <div class="dropdown">
+                                                                        <select id="ddlJenSi" ></select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-7">
+                                                            <textarea id="txtKetKategori" class="form-control"  readonly="readonly"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Problem (What) -->
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-2 col-form-label">Problem (What)</label>
+                                                        <div class="col-sm-10">
+                                                            <textarea id="txtProblem" class="form-control"  readonly="readonly"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-2 col-form-label">Tanggal dan Waktu Kejadian</label>
+                                                        <div class="col-sm-4">
+                                                            <div class="input-group">
+                                                                <input id="date-format" type="text" class="form-control"  readonly="readonly">
+                                                                <span class="input-group-append">
+                                                                    <span class="input-group-text">
+                                                                        <i class="mdi mdi-calendar-check"></i>
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-2 col-form-label">Lokasi (Where)</label>
+                                                        <div class="col-sm-10">
+                                                            <textarea id="txtLokasi" class="form-control"  readonly="readonly"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-2 col-form-label">Siapa saja yang terlibat (Who)</label>
+                                                        <div class="col-sm-4">
+                                                            <div class="input-group">
+                                                                <input id="txtWho" class="form-control" readonly="readonly">
+                                                                <span class="input-group-append">
+                                                                    <span class="input-group-text">
+                                                                        <i class="fa fa-user-plus"></i>
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Bagaimana Urutan Kejadian -->
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-2 col-form-label">Bagaimana Urutan Kejadian (How)</label>
+                                                        <div class="col-sm-10">
+                                                            <textarea id="txtHow" class="form-control"  readonly="readonly"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Apakah ada proses / batch lain yang berpotrnsi mengalami penyimpangan yang sama? -->
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-2 col-form-label">Apakah ada proses / batch lain yang berpotrnsi mengalami penyimpangan yang sama?</label>
+                                                        <div class="col-sm-10">
+                                                            <div class="form-group">
+                                                                <div class="form-check form-check-inline">
+                                                                    <label>
+                                                                        <input name="travel1" type="radio" data-travelNumber="1" id="travel_no_1" value="No" checked  disabled ="disabled"> Tidak
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <label>
+                                                                        <input type="radio" name="travel1" data-travelNumber="1" id="travel_yes_1" value="Yes" disabled ="disabled"> Ya
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <textarea name="travelDetails" id="txt1" class="form-control"  readonly="readonly"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Apakah status material / batch yang berpotensi mengalami penyimpangan sama sudah rilis / terdistribusi?-->
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-2 col-form-label">Apakah status material / batch yang berpotensi mengalami penyimpangan sama sudah rilis / terdistribusi?</label>
+                                                        <div class="col-sm-10">
+                                                            <div class="form-group">
+                                                                <div class="form-check form-check-inline">
+                                                                    <label>
+                                                                        <input name="travel2" type="radio" data-travelNumber="1" id="travel_no_2" value="No" checked  disabled ="disabled"> Tidak
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <label>
+                                                                        <input type="radio" name="travel2" data-travelNumber="1" id="travel_yes_2" value="Yes"  disabled ="disabled"> Ya
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <textarea id="txt2" name="travelDetails" class="form-control"  readonly="readonly"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Apakah penyimpangan juga berpotensi terjadi di area/proses yang lain? -->
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-2 col-form-label">Apakah penyimpangan juga berpotensi terjadi di area/proses yang lain?</label>
+                                                        <div class="col-sm-10">
+                                                            <div class="form-group">
+                                                                <div class="form-check form-check-inline">
+                                                                    <label>
+                                                                        <input name="travel3" type="radio" data-travelNumber="1" id="travel_no_3" value="No" checked  disabled ="disabled"> Tidak
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <label>
+                                                                        <input type="radio" name="travel3" data-travelNumber="1" id="travel_yes_3" value="Yes"  disabled ="disabled"> Ya
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <textarea id="txt3" name="travelDetails" class="form-control"  readonly="readonly"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Tindakan yang sudah dilakukan ketika penyimpangan / potensi penyimpangan terjadi -->
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-2 col-form-label">Tindakan yang sudah dilakukan ketika penyimpangan / potensi penyimpangan terjadi</label>
+                                                        <div class="col-sm-10">
+                                                            <textarea id="txtTindakan" class="form-control"  readonly="readonly"></textarea>
+                                                            <div class="row" style="padding-top: 5px">
+                                                            </div>
+                                                        </div>
+                                                        <label class="col-sm-2 col-form-label"></label>
+                                                        <div class="col-sm-10">
+                                                            <div class="table-responsive">
+                                                                <table id="tbl_Attachment" class="table header-border">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th><b>No</b></th>
+                                                                            <th><b>File Name</b></th>
+                                                                            <th><b>Action</b></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody id="tbody_Attachment"></tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Dropdown List -->
+                                <div class="col-lg-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="basic-form">
+                                                <form>
+                                                    <div class="form-group row">
+                                                        <h4 class="col-sm-6 col-form-label">Penilaian Potensi Dampak dari penyimpangan</h4>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <label>Kualitas Produk</label><br />
+                                                                <div class="btn-group mb-2">
+                                                                    <div class="basic-dropdown">
+                                                                        <div class="dropdown">
+                                                                            <select id="ddlKualProd"></select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <label>Risiko Finansial</label><br />
+                                                                <div class="btn-group mb-2">
+                                                                    <div class="basic-dropdown">
+                                                                        <div class="dropdown">
+                                                                            <select id="ddlRiskFin"></select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <label>Risiko Kesehatan Personil</label><br />
+                                                                <div class="btn-group mb-2">
+                                                                    <div class="basic-dropdown">
+                                                                        <div class="dropdown">
+                                                                            <select id="ddlKesehatanPer"></select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Baris 2 -->
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <label>Compliance</label><br />
+                                                                <div class="btn-group mb-2">
+                                                                    <div class="basic-dropdown">
+                                                                        <div class="dropdown">
+                                                                            <select id="ddlCompliance"></select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <label>Risiko Organisasi</label><br />
+                                                                <div class="btn-group mb-2">
+                                                                    <div class="basic-dropdown">
+                                                                        <div class="dropdown">
+                                                                            <select id="ddlRiskOrg"></select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <label>Risiko Lingkungan</label><br />
+                                                                <div class="btn-group mb-2">
+                                                                    <div class="basic-dropdown">
+                                                                        <div class="dropdown">
+                                                                            <select id="ddlResLingk"></select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Baris 3-->
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <label>Risiko Operasional</label><br />
+                                                                <div class="btn-group mb-2">
+                                                                    <div class="basic-dropdown">
+                                                                        <div class="dropdown">
+                                                                            <select id="ddlRiskOpr"></select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <label>Risiko Keamanan Personil</label><br />
+                                                                <div class="btn-group mb-2">
+                                                                    <div class="basic-dropdown">
+                                                                        <div class="dropdown">
+                                                                            <select id="ddlKeamamananP"></select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <label>Risiko Intelektual</label><br />
+                                                                <div class="btn-group mb-2">
+                                                                    <div class="basic-dropdown">
+                                                                        <div class="dropdown">
+                                                                            <select id="ddlRiskIntelek"></select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <label>Tingkat Keparahan Penyimpangan</label><br />
+                                                                <div class="btn-group mb-2">
+                                                                    <input id="txtKeparahan" type="text" class="form-control" readonly="readonly">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- End Form-->
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ************************************************  END FORM Deviation ************************************************ -->
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4>Apakah anda menyetujui uraian penyimpangan ini ?</h4>
+                                            <div class="col-3">
+                                                <a href='#' class='btn btn-success' onclick=DeleteData('" + row.REQ_ID + "'); >Approve</a>
+                                            </div>
+                                            <div class="col-3">
+                                                <a href='#' class='btn btn-success' onclick=DeleteData('" + row.REQ_ID + "'); >Reject</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!--**********************************
+                        Content body end
+                    ***********************************-->
+
+                    <script>
+                        $(document).ready(function () {
+                            DetailDeviation();
+                        });
+
+                        function DetailDeviation() {
+                            
+                            var REQID = $("#lblReq").text();
+                            var dto = { REQID: REQID };
+
+                            $.ajax({
+                                url: "LoadDetailForm",
+                                type: "post",
+                                dataType: "json",
+                                data: JSON.stringify(dto),
+                                contentType: "application/json;charset=utf-8",
+                                success: function (data) {
+                                    alert('MASUK');
+                                    var Count = data.length;
+                                    $('#TbTglCreated').val(data[0]);
+                                    $('#TbNmrDev').val(data[2]);
+                                    $('#TbPesul').val(data[3]);
+                                    $('#TbDeptPusul').val(data[4]);
+                                    $('#txtProblem').val(data[5]);
+                                    $('#date-format').val(data[6]);
+                                    $('#ddlSite').append($('<option></option>').text(data[7])); //append(data[7]);
+                                    $('#ddlKategori').append($('<option></option>').text(data[8])); //.append(data[8]);
+                                    
+                                    $('#ddlJenSi').append($('<option></option>').text(data[9])) //append(data[9]);
+                                    $('#txtKetKategori').val(data[10]);
+                                    $('#txtLokasi').val(data[11]);
+                                    $('#txtWho').val(data[12]);
+                                    $('#txtHow').val(data[13]);
+                                    $('#txt1').val(data[15]);
+                                    $("input[name=travel1][value=" + data[14] + "]").prop('checked', true); //$('input[name="travel1"]').val(data[14]);
+                                    $('#txt2').val(data[17]);
+                                    $("input[name=travel2][value=" + data[16] + "]").prop('checked', true);//$('input[name="travel2"]').val(data[16]);
+                                    $('#txt3').val(data[19]);
+                                    $("input[name=travel3][value=" + data[18] + "]").prop('checked', true);//$('input[name="travel3"]').val(data[18]);
+                                    $('#txtTindakan').val(data[20]);
+                                    $('#ddlKualProd').append($('<Option></option').text(data[21])); //val(data[21]);
+                                    $('#ddlCompliance').append($('<Option></option>').text(data[22])); //.val(data[22]);
+                                    $('#ddlRiskOpr').append($('<Option></option>').text(data[23])); //.val(data[23]);
+                                    $('#ddlRiskFin').append($('<Option></option>').text(data[24])); //.val(data[24]);
+                                    $('#ddlRiskOrg').append($('<Option></option>').text(data[25])); //.val(data[25]);
+                                    $('#ddlKeamamananP').append($('<Option></option>').text(data[26])); //.val(data[26]);
+                                    $('#ddlKesehatanPer').append($('<Option></option>').text(data[27])); //.val(data[27]);
+                                    $('#ddlResLingk').append($('<Option></option>').text(data[28])); //.val(data[28]);
+                                    $('#ddlRiskIntelek').append($('<Option></option>').text(data[29])); //.val(data[29]);
+                                    $('#txtKeparahan').val(data[30]);
+
+                                    $('#ddlSite').selectpicker();
+                                    $('#ddlKategori').selectpicker();
+                                    
+                                    if ($('#ddlJenSi').text() == '') {
+                                        $('#ddlJenSi').attr('hidden', true);
+                                    }
+                                    else {
+                                        $('#ddlJenSi').selectpicker();
+                                    }
+                                    
+                                    if ($('#ddlKualProd').text() == '') {
+                                        $('#ddlKualProd').attr('hidden', true);
+                                    }
+                                    else {
+                                        $('#ddlKualProd').selectpicker();
+                                    }
+
+                                    if ($('#ddlCompliance').text() == '') {
+                                        $('#ddlCompliance').attr('hidden', true);
+                                    }
+                                    else {
+                                        $('#ddlCompliance').selectpicker();
+                                    }
+
+                                    if ($('#ddlRiskOpr').text() == '') {
+                                        $('#ddlRiskOpr').attr('hidden', true);
+                                    }
+                                    else {
+                                        $('#ddlRiskOpr').selectpicker();
+                                    }
+
+                                    if ($('#ddlRiskFin').text() == '') {
+                                        $('#ddlRiskFin').attr('hidden', true);
+                                    }
+                                    else {
+                                        $('#ddlRiskFin').selectpicker();
+                                    }
+
+                                    if ($('#ddlRiskOrg').text() == '') {
+                                        $('#ddlRiskOrg').attr('hidden', true);
+                                    }
+                                    else {
+                                        $('#ddlRiskOrg').selectpicker();
+                                    }
+
+                                    if ($('#ddlKeamamananP').text() == '') {
+                                        $('#ddlKeamamananP').attr('hidden', true);
+                                    }
+                                    else {
+                                        $('#ddlKeamamananP').selectpicker();
+                                    }
+
+                                    if ($('#ddlKesehatanPer').text() == '') {
+                                        $('#ddlKesehatanPer').attr('hidden', true);
+                                    }
+                                    else {
+                                        $('#ddlKesehatanPer').selectpicker();
+                                    }
+
+                                    if ($('#ddlResLingk').text() == '') {
+                                        $('#ddlResLingk').attr('hidden', true);
+                                    }
+                                    else {
+                                        $('#ddlResLingk').selectpicker();
+                                    }
+
+                                    if ($('#ddlRiskIntelek').text() == '') {
+                                        $('#ddlRiskIntelek').attr('hidden', true);
+                                    }
+                                    else {
+                                        $('#ddlRiskIntelek').selectpicker();
+                                    }
+                                    
+                                }
+                                , error: function (textStatus, errorThrown) {
+                                    alert(textStatus);
+                                }
+                            });
+                        }
+
+
+                    </script>
+                

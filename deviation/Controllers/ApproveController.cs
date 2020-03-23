@@ -6,14 +6,16 @@ using System.Web.Mvc;
 using deviation.Models;
 using System.Data.Entity;
 using System.Linq.Dynamic;
-
-
+using System.Data;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace deviation.Controllers
 {
     public class ApproveController : Controller
     {
         // GET: Approve
+        private readonly string constr = ConfigurationManager.ConnectionStrings["DB_DO"].ConnectionString;
         public ActionResult Index()
         {
             return View();
@@ -74,9 +76,79 @@ namespace deviation.Controllers
             }
         }
 
-        public ActionResult DetailForm()
+        public ActionResult LoadDetailForm(string REQID)
         {
+            try
+            {
+                List<string> ModelData = new List<string>();
+
+                DataTable dt = new DataTable();
+                string query = "EXEC INSERT_FORM_DEVIATION @PILIH = 6, @REQID='" + REQID + "'";
+
+                SqlConnection conn = new SqlConnection(constr);
+                SqlCommand cmd = new SqlCommand(query, conn);
+                conn.Open();
+
+                // create data adapter
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                // this will query your database and return the result to your datatable
+                da.Fill(dt);
+                conn.Close();
+                da.Dispose();
+
+                List<DataRow> DataRow = new List<DataRow>();
+                int n = 0;
+                foreach (DataRow dr in dt.Rows)
+                {
+                    //string Date = dr[0].ToString().Substring(0, 10);
+                    //string Date = dr[0].ToString();
+                    //string DateInput = Date.Replace("/", "-");
+                    ModelData.Add(dr[0].ToString());
+                    ModelData.Add(dr[1].ToString());
+                    ModelData.Add(dr[2].ToString());
+                    ModelData.Add(dr[3].ToString());
+                    ModelData.Add(dr[4].ToString());
+                    ModelData.Add(dr[5].ToString());
+                    ModelData.Add(dr[6].ToString());
+                    ModelData.Add(dr[7].ToString());
+                    ModelData.Add(dr[8].ToString());
+                    ModelData.Add(dr[9].ToString());
+                    ModelData.Add(dr[10].ToString());
+                    ModelData.Add(dr[11].ToString());
+                    ModelData.Add(dr[12].ToString());
+                    ModelData.Add(dr[13].ToString());
+                    ModelData.Add(dr[14].ToString());
+                    ModelData.Add(dr[15].ToString());
+                    ModelData.Add(dr[16].ToString());
+                    ModelData.Add(dr[17].ToString());
+                    ModelData.Add(dr[18].ToString());
+                    ModelData.Add(dr[19].ToString());
+                    ModelData.Add(dr[20].ToString());
+                    ModelData.Add(dr[21].ToString());
+                    ModelData.Add(dr[22].ToString());
+                    ModelData.Add(dr[23].ToString());
+                    ModelData.Add(dr[24].ToString());
+                    ModelData.Add(dr[25].ToString());
+                    ModelData.Add(dr[26].ToString());
+                    ModelData.Add(dr[27].ToString());
+                    ModelData.Add(dr[28].ToString());
+                    ModelData.Add(dr[29].ToString());
+                    ModelData.Add(dr[30].ToString());
+                }
+                return Json(ModelData);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public ActionResult DetailForm(string REQID)
+        {
+            ViewBag.REQID = REQID;
             return View();
         }
+
+        
     }
 }

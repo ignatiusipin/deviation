@@ -5059,6 +5059,8 @@
     </Compile>
     <Compile Include="Models\DatabaseContext.cs" />
     <Compile Include="Models\Deviation.cs" />
+    <Compile Include="Models\Deviation_from.cs" />
+    <Compile Include="Models\FooViewConfiguration.cs" />
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
@@ -5351,6 +5353,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\ApproveSuperior.cshtml" />
     <Content Include="Views\Approve\PendingList.cshtml" />
+    <Content Include="Views\Approve\DetailForm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

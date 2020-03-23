@@ -1,8 +1,4 @@
-﻿<div>
-    <div>
-        <div>
-            <div>
-                <div>
+﻿
                     @{
                         ViewBag.Title = "Input";
                         Layout = "~/Views/Shared/_Layout.cshtml";
@@ -422,6 +418,7 @@
                         ***********************************-->
                     <script>
                         //window.onbeforeunload = function () {
+                        //window.onbeforeunload
                         //    return 'Apakah kamu yakin untuk me-reload page?';
                         //}
 
@@ -451,11 +448,12 @@
                                 
                                 var USER_INVOLVED = $("#txtWho").val();
                                 var ORDER_OF_EVENTS = $("#txtHow").val();
-                                var SAME_POTEN_DEV_FLAG = $(".travel1").selected;
+                                
+                                var SAME_POTEN_DEV_FLAG = $('input[name="travel1"]:checked').val();
                                 var SAME_POTEN_DEV = $("#txt1").val();
-                                var POTEN_DEV_RLS_FLG = $(".travel2").selected;
+                                var POTEN_DEV_RLS_FLG = $('input[name="travel2"]:checked').val();
                                 var POTEN_DEV_RLS = $("#txt2").val();
-                                var POTEN_DEV_OTH_FLG = $(".travel3").selected;
+                                var POTEN_DEV_OTH_FLG = $('input[name="travel3"]:checked').val();
                                 var POTEN_DEV_OTH = $("#txt3").val();
                                 var ACTION_WHEN_DEV = $("#txtTindakan").val();
                                 var FILE_UPLOAD_ID = $("#txtUpload").val();
@@ -558,8 +556,6 @@
                             
                         });
 
-                        
-
                         function GetAttachment(REQID) {
 
                             var formData = new FormData();
@@ -573,9 +569,6 @@
                                 contentType: false,
                                 processData: false,
                                 success: function (data) {
-
-                                    alert('Get Attachment !!!'); 
-
                                     var trHTML = '';
                                     var trav = 0;
                                     var Count = data.length;
@@ -629,8 +622,6 @@
                                 }
                             });
                         }
-
-                       
 
                         function SetupRbDtPicker() {
 
@@ -995,8 +986,4 @@
                         }
                         
                     </script>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+              

@@ -63,14 +63,15 @@
             "columns": [
                 { "data": "REQ_ID", "name": "REQ_ID" },
                 { "data": "Problem", "name": "Problem" },
-                { "data": "Departement", "title": "Departement", "name": "ContactName" },
+                { "data": "Departement", "name": "Departement" },
                 { "data": "Date_of_incident", "name": "Date_of_incident" },
                 { "data": "Deviation_category", "name": "Deviation_category" },
                 { "data": "Location", "name": "Location" },
 
                 {
                     "render": function (data, type, full, meta) {
-                        return '<a class="btn btn-info" href="/Approve/Detail/' + full.REQ_ID + '">Details</a>';
+                        //return '<a class="btn btn-info" href="DetailForm?Req_ID=' + full.REQ_ID + '">Details</a>';
+                        return '<a class="btn btn-info" href="DetailForm?REQID=' + full.REQ_ID + '">Details</a>';
                     }
                 },
 

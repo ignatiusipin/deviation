@@ -30,4 +30,5 @@ namespace deviation.Models
         [Required(ErrorMessage = "Required Lokasi Kejadian")]
         public string Location { get; set; }
     }
+
 }
