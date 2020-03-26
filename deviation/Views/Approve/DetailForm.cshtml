@@ -366,13 +366,19 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <h4>Apakah anda menyetujui uraian penyimpangan ini ?</h4>
-                                            <div class="col-3">
-                                                <a href='#' class='btn btn-success' onclick=DeleteData('" + row.REQ_ID + "'); >Approve</a>
-                                            </div>
-                                            <div class="col-3">
-                                                <a href='#' class='btn btn-success' onclick=DeleteData('" + row.REQ_ID + "'); >Reject</a>
-                                            </div>
-                                        </div>
+                                            <div class="form-group row">
+                                                <div class="col-2">
+                                                    <button id="btnApprove" type="button" class="btn mb-1 btn-success">
+                                                        Approve <span class="btn-icon-right"><i class="fa fa-check"></i></span>
+                                                    </button>
+                                                </div>
+                                                <div class="col-2">
+                                                    <button id="btnReject" type="button" class="btn mb-1 btn-danger">
+                                                        Reject <span class="btn-icon-right"><i class="fa fa-times"></i></span>
+                                                    </button>
+                                                </div>
+                                            </div>  
+                                       </div>
                                     </div>
                                 </div>
                             </div>
@@ -386,6 +392,59 @@
                     <script>
                         $(document).ready(function () {
                             DetailDeviation();
+
+                            $("#btnApprove").click(function () {
+                                var REQID = $("#lblReq").text();
+                                var dto = { REQID: REQID }
+                                
+                                $.ajax({
+                                    url: "ApproveAction",
+                                    type: "POST",
+                                    dataType: "JSON",
+                                    data: JSON.stringify(dto),
+                                    contentType: "application/json;charset=utf-8",
+                                    success: function (data) {
+                                        if (data == 1) {
+                                            alert("Approval Berhasil")
+                                            window.location.href = "pendinglist/"
+                                        }
+                                        else {
+                                            alert("Approve Gagal / System Error")
+                                        }
+                                        
+                                    }, error: function (textStatus, errorThrown) {
+                                        alert(textStatus);
+                                    }
+
+
+                                });
+                            });
+
+                            $("#btnReject").click(function () {
+                                var REQID = $("#lblReq").text();
+                                var dto = { REQID: REQID }
+
+                                $.ajax({
+                                    url: "RejectAction",
+                                    type: "POST",
+                                    dataType: "JSON",
+                                    data: JSON.stringify(dto),
+                                    contentType: "application/json;charset=utf-8",
+                                    success: function (data) {
+                                        if (data == 1) {
+                                            alert("Reject Berhasil")
+                                            window.location.href = "pendinglist/"
+                                        }
+                                        else {
+                                            alert("Reject Gagal / System Error")
+                                        }
+                                    }, error: function (textStatus, errorThrown) {
+                                        alert(textStatus);
+                                    }
+
+
+                                });
+                            });
                         });
 
                         function DetailDeviation() {

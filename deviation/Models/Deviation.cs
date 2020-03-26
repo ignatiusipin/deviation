@@ -29,6 +29,7 @@ namespace deviation.Models
         public string Ket_category { get; set; }
         [Required(ErrorMessage = "Required Lokasi Kejadian")]
         public string Location { get; set; }
+        public string Status { get; set; }
     }
 
 }

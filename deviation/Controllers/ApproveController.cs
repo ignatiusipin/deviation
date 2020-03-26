@@ -44,9 +44,12 @@ namespace deviation.Controllers
                     int skip = start != null ? Convert.ToInt32(start) : 0;
                     int recordsTotal = 0;
 
+                    string PARAMSTATUS = "OPEN";
+
                     // Getting all Customer data  
                     var deviationData = (from tempdeviationHeader in _context.Deviations
-                                        select tempdeviationHeader);
+                                         where tempdeviationHeader.Status == PARAMSTATUS
+                                         select tempdeviationHeader);
 
                     //Sorting  
                     if (!(string.IsNullOrEmpty(sortColumn) && string.IsNullOrEmpty(sortColumnDir)))
@@ -149,6 +152,64 @@ namespace deviation.Controllers
             return View();
         }
 
-        
+        public ActionResult ApproveAction(Form_deviation FD)
+        {
+            string result;
+            SqlConnection conn = new SqlConnection(constr);
+            try
+            {
+                conn.Open();
+                using (SqlCommand command = new SqlCommand("Insert_form_deviation", conn))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.Add("@PILIH", System.Data.SqlDbType.Int);
+                    command.Parameters["@PILIH"].Value = 7;
+
+                    command.Parameters.Add("@REQID", System.Data.SqlDbType.VarChar);
+                    command.Parameters["@REQID"].Value = FD.REQID;
+
+                    result = (string)command.ExecuteScalar();
+
+                }
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                result = ex.ToString();
+                return Json(result);
+            }
+            return Json(result);
+        }
+
+        public ActionResult RejectAction(Form_deviation FD)
+        {
+            string result;
+            SqlConnection conn = new SqlConnection(constr);
+            try
+            {
+                conn.Open();
+                using (SqlCommand command = new SqlCommand("Insert_form_deviation", conn))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.Add("@PILIH", System.Data.SqlDbType.Int);
+                    command.Parameters["@PILIH"].Value = 8;
+
+                    command.Parameters.Add("@REQID", System.Data.SqlDbType.VarChar);
+                    command.Parameters["@REQID"].Value = FD.REQID;
+
+                    result = (string)command.ExecuteScalar();
+
+                }
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                result = ex.ToString();
+                return Json(result);
+            }
+            return Json(result);
+        }
     }
 }

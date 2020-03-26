@@ -1,0 +1,216 @@
+﻿
+@{
+    ViewBag.Title = "Koordinator";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-body">
+
+    <div class="row page-titles mx-0">
+        <div class="col p-md-0">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">QO</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Koordinator</a></li>
+            </ol>
+        </div>
+    </div>
+    <!-- row -->
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="d-inline">Laporan Penyimpangan</h4>
+                        <div class="form-group row">
+                            <div class="col">
+                                <br />
+                                <label>Register Number</label>
+                                <br />
+                                <label id="lblReq" style="font-weight:bold"></label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col">
+                                <label>Tanggal</label>
+                                <input id="TbTglCreated" class="form-control" readonly="readonly">
+                            </div>
+                            <div class="col">
+                                <label>Nomer Deviation</label>
+                                <input id="TbNmrDev" type="text" class="form-control" readonly="readonly">
+                            </div>
+
+                            <div class="col">
+                                <label>Pengusul</label>
+                                <input id="TbPesul" type="text" class="form-control" readonly="readonly">
+                            </div>
+                            <div class="col">
+                                <label>Departemen</label>
+                                <input id="TbDeptPusul" type="text" class="form-control" readonly="readonly">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @* Form Deviation Detail *@
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="d-inline">Detail Laporan</h4>
+                        <div class="form-group row">
+                            <div class="col">
+                                <label>Detail Deviation</label>
+                                <br>
+                                <button type="button" class="btn mb-1 btn-outline-info btn-block">View</button>
+                            </div>
+                            <div class="col">
+                            </div>
+                            <div class="col">
+                            </div>
+                            <div class="col">
+                                <label>Approve By</label><br>
+                                <label>Supervisor Superior</label>
+                            </div>
+
+                            <div class="col">
+                                <label>Approve Date</label></br>
+                                <label>29 Februari 2020</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @* Koordinator Penyimpangan *@
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="d-inline">Koordinator Penyimpangan</h4>
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label>Quality System</label>
+                                <br>
+                                <label>Nama Orang QS</label>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-3">
+                                <label>Kategori Penyimpangan</label>
+                            </div>
+
+                            <div class="col-3">
+                                <div class="btn-group mb-2">
+                                    <div class="basic-dropdown">
+                                        <div class="dropdown">
+                                            <select id="DdlKategori" title="Kategori Penyimpangan" class="selectpicker"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                            </div>
+                            <div class="col-3">
+                                <div class="btn-group mb-2">
+                                    <div class="basic-dropdown">
+                                        <div class="dropdown">
+                                            <select id="DdlJenis" title="Jenis Penyimpangan" class="selectpicker"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn mb-1 btn-outline-success btn-block">Ubah Kategori</button>
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn mb-1 btn-outline-danger btn-block">Reject</button>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        @* Koordinator Penyimpangan *@
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="d-inline">Koordinator Penyimpangan</h4>
+                        <div class="form-group row">
+                            <div class="col-4">
+                                <div class="col-3">
+                                    <label>Departement</label>
+                                </div>
+                                <div class="col-3">
+                                    <div class="btn-group mb-2">
+                                        <div class="basic-dropdown">
+                                            <div class="dropdown">
+                                                <select id="DdlKategori" title="Departement" class="selectpicker"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <label>Nama</label>
+                                </div>
+                                <div class="col-3">
+                                    <div class="btn-group mb-2">
+                                        <div class="basic-dropdown">
+                                            <div class="dropdown">
+                                                <select id="DdlKategori" title="Nama" class="selectpicker"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="col">
+                                    <label> Sysdate </label>
+                                    <textarea id="txtPJlasan" name="txtPenjelasan" class="form-control" placeholder="Penjelasan"></textarea>
+                                </div>
+                                <div class="col">
+                                    <br />
+                                </div>
+                                <div class="col-2">
+                                    <button type="button" class="btn mb-1 btn-outline-success btn-block">Tambah</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped verticle-middle">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">No</th>
+                                            <th scope="col">NIK</th>
+                                            <th scope="col">Nama</th>
+                                            <th scope="col">Departemen</th>
+                                            <th scope="col">Tanggal Evaluasi</th>
+                                            <th scope="col">Jam Evaluasi</th>
+                                            <th scope="col">Penjelasan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div> <!-- End Table-->
+                        <div class="col-2">
+                            <button type="button" class="btn mb-1 btn-outline-success btn-block">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- #/ container -->
+</div>
