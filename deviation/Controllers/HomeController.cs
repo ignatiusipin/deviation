@@ -706,5 +706,15 @@ namespace deviation.Controllers
             }
         }
 
+        #region Pelaku Remidial
+
+        public ActionResult FormTindakanRemidial()
+        {
+            return View();
+        }
+
+
+
+        #endregion
     }
 }

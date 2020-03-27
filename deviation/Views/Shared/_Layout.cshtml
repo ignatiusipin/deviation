@@ -34,7 +34,6 @@
 </head>
 
 <body>
-
     <!--*******************
         Preloader start
     ********************-->
@@ -52,7 +51,6 @@
         Main wrapper start
     ***********************************-->
     <div id="main-wrapper">
-
         <!--**********************************
             Nav header start
         ***********************************-->
@@ -79,7 +77,6 @@
         ***********************************-->
         <div class="header">
             <div class="header-content clearfix">
-
                 <div class="nav-control">
                     <div class="hamburger">
                         <span class="toggle-icon"><i class="icon-menu"></i></span>
@@ -108,7 +105,6 @@
                             <div class="drop-down animated fadeIn dropdown-menu">
                                 <div class="dropdown-content-heading d-flex justify-content-between">
                                     <span class="">3 New Messages</span>
-
                                 </div>
                                 <div class="dropdown-content-body">
                                     <ul>
@@ -153,7 +149,6 @@
                                             </a>
                                         </li>
                                     </ul>
-
                                 </div>
                             </div>
                         </li>
@@ -165,7 +160,6 @@
                             <div class="drop-down animated fadeIn dropdown-menu dropdown-notfication">
                                 <div class="dropdown-content-heading d-flex justify-content-between">
                                     <span class="">2 New Notifications</span>
-
                                 </div>
                                 <div class="dropdown-content-body">
                                     <ul>
@@ -206,7 +200,6 @@
                                             </a>
                                         </li>
                                     </ul>
-
                                 </div>
                             </div>
                         </li>
@@ -449,14 +442,11 @@
     <script src="~/Content/Scripts/js/gleek.js"></script>
     <script src="~/Content/Scripts/js/styleSwitcher.js"></script>
     <!-- Table -->
-
     <script src="~/Content/Scripts/plugins/tables/js/jquery.dataTables.min.js"></script>
     <script src="~/Content/Scripts/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
     <script src="~/Content/Scripts/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
-
     @*<script src="~/Content/Scripts/plugins/sweetalert/js/sweetalert.init.js"></script>
         <script src="~/Content/Scripts/plugins/sweetalert/js/sweetalert.min.js"></script>*@
-
     <!-- Date Picker Plugin JavaScript -->
     <script src="~/Content/Scripts/plugins/moment/moment.js"></script>
     <script src="~/Content/Scripts/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
@@ -472,11 +462,29 @@
     <script src="~/Content/Scripts/plugins/timepicker/bootstrap-timepicker.min.js"></script>
     <script src="~/Content/Scripts/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
 
-
     <script src="~/Content/Scripts/js/plugins-init/form-pickers-init.js"></script>
-
     <script src="~/Content/Scripts/js/plugins/validation/jquery.validate.min.js"></script>
     <script src="~/Content/Scripts/js/plugins/validation/jquery.validate-init.js"></script>
+    <script>
+        (function ($) {
+            "use strict"
+
+            new quixSettings({
+                version: "light", //2 options "light" and "dark"
+                layout: "vertical", //2 options, "vertical" and "horizontal"
+                navheaderBg: "color_1", //have 10 options, "color_1" to "color_10"
+                headerBg: "color_1", //have 10 options, "color_1" to "color_10"
+                sidebarStyle: "full", //defines how sidebar should look like, options are: "full", "compact", "mini" and "overlay". If layout is "horizontal", sidebarStyle won't take "overlay" argument anymore, this will turn into "full" automatically!
+                sidebarBg: "color_1", //have 10 options, "color_1" to "color_10"
+                sidebarPosition: "static", //have two options, "static" and "fixed"
+                headerPosition: "static", //have two options, "static" and "fixed"
+                containerLayout: "wide",  //"boxed" and  "wide". If layout "vertical" and containerLayout "boxed", sidebarStyle will automatically turn into "overlay".
+                direction: "ltr" //"ltr" = Left to Right; "rtl" = Right to Left
+            });
+
+
+        })(jQuery);
+   </script>
 </body>
 
 </html>

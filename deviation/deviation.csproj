@@ -5053,6 +5053,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ApproveController.cs" />
+    <Compile Include="Controllers\EvaluatorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QOController.cs" />
     <Compile Include="Global.asax.cs">
@@ -5357,6 +5358,9 @@
     <Content Include="Views\Approve\DetailForm.cshtml" />
     <Content Include="Views\Home\ListFormDeviation.cshtml" />
     <Content Include="Views\QO\Koordinator.cshtml" />
+    <Content Include="Views\Evaluator\Form.cshtml" />
+    <Content Include="Views\QO\DisposisiTindakan.cshtml" />
+    <Content Include="Views\Home\FormTindakanRemidial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

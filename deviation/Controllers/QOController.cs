@@ -20,5 +20,10 @@ namespace deviation.Controllers
         {
             return View();
         }
+
+        public ActionResult DisposisiTindakan()
+        {
+            return View();
+        }
     }
 }
