@@ -25,5 +25,15 @@ namespace deviation.Controllers
         {
             return View();
         }
+
+        public ActionResult Verifikasi()
+        {
+            return View();
+        }
+
+        public ActionResult DisposisiProduk()
+        {
+            return View();
+        }
     }
 }

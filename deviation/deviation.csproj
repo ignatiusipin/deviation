@@ -5361,6 +5361,8 @@
     <Content Include="Views\Evaluator\Form.cshtml" />
     <Content Include="Views\QO\DisposisiTindakan.cshtml" />
     <Content Include="Views\Home\FormTindakanRemidial.cshtml" />
+    <Content Include="Views\QO\Verifikasi.cshtml" />
+    <Content Include="Views\QO\DisposisiProduk.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
